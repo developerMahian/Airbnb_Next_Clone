@@ -3,8 +3,8 @@ import Header from "../components/Header";
 import TopCard from "../components/TopCard";
 import HomeBanner from "../components/HomeBanner";
 import MiddleCard from "../components/MiddleCard";
-import Image from "next/image";
 import BottomCard from "../components/BottomCard";
+import Footer from "../components/Footer";
 
 export async function getServerSideProps() {
   const exploreData = await fetch("https://links.papareact.com/pyp").then(
@@ -60,6 +60,8 @@ const Home = ({ exploreData, liveAnywhereData }) => (
         <BottomCard heading="The Greatest Outdoors" />
       </section>
     </main>
+
+    <Footer />
   </>
 );
 
