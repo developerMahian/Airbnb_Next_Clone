@@ -2,8 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+*::selection {
+  background-color: #ef4444;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   font-size: 14px;
   color: #222;
+}
+
+button,
+img {
+  user-select: none;
+}
+
+img {
+  object-fit: cover;
 }

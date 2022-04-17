@@ -10,10 +10,9 @@ import {
 
 const TransBtn = ({ children, samePadding }) => (
   <div
-    className={`btn-transparent font-semibold hover:bg-gray-100 transition-colors duration-200 rounded-full cursor-pointer ${
+    className={`font-semibold hover:bg-gray-100 transition-colors duration-200 rounded-full cursor-pointer ${
       samePadding ? "p-2" : "py-2 px-4"
-    }`}
-  >
+    }`}>
     <Link href="#">
       <a>{children}</a>
     </Link>
@@ -32,7 +31,7 @@ const Header = () => (
         </Link>
       </div>
 
-      <div className="header__search-bar flex-grow md:max-w-xs flex items-center border-2 shadow-sm hover:shadow transition-shadow rounded-full p-1.5">
+      <div className="header__search-bar flex-grow md:max-w-sm lg:ml-24 flex items-center border-2 shadow-sm hover:shadow transition-shadow rounded-full p-1.5">
         <input
           className="outline-none font-semibold mx-3 flex-grow placeholder:text-black text-center md:text-left"
           type="search"

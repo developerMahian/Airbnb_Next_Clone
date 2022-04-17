@@ -4,6 +4,10 @@ const nextConfig = {
 };
 
 module.exports = {
+  nextConfig,
+  images: {
+    domains: ["links.papareact.com"],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -12,5 +16,4 @@ module.exports = {
 
     return config;
   },
-  nextConfig,
 };
