@@ -2,8 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+.flex-all-cen {
+  @apply flex justify-center items-center;
+}
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.heading-1 {
+  @apply text-3xl font-extrabold;
+}
+.heading-2 {
+  @apply text-2xl font-extrabold;
+}
+.heading-3 {
+  @apply text-lg font-bold;
+}
+
+* {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
 *::selection {
-  background-color: #ef4444;
+  background-color: #ffb8b8;
 }
 
 body {
@@ -19,4 +41,8 @@ img {
 
 img {
   object-fit: cover;
+}
+
+.rdrDayNumber {
+  font-weight: 600 !important;
 }

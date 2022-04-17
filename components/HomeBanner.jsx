@@ -2,13 +2,14 @@ import Image from "next/image";
 import bannerImg from "../assets/images/banner.jpg";
 
 const HomeBanner = () => (
-  <div className="home-banner relative h-[270px] sm:h-[350px] lg:h-[450px] 2xl:h-[550px]">
+  <div className="home-banner relative mt-20 h-[270px] sm:h-[350px] lg:h-[450px] 2xl:h-[550px]">
     <Image
       className="-z-10"
       src={bannerImg}
       alt="Homepage banner image"
       layout="fill"
       objectPosition="bottom"
+      priority={true}
     />
 
     <div className="banner-content text-base absolute top-[36%] w-full text-center">
