@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState, useRef, useEffect } from "react";
 import { DateRangePicker } from "react-date-range";
-import { addDays, setDate } from "date-fns";
+import { addDays } from "date-fns";
 import FullLogo from "../assets/svg/full-logo.svg";
 import HalfLogo from "../assets/svg/half-logo.svg";
 import {
@@ -13,20 +14,8 @@ import {
 } from "@heroicons/react/solid";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { useRouter } from "next/router";
 
-const TransBtn = ({ children, samePadding }) => (
-  <div
-    className={`font-semibold hover:bg-gray-100 transition-colors duration-200 rounded-full cursor-pointer ${
-      samePadding ? "p-2" : "py-2 px-4"
-    }`}>
-    <Link href="#">
-      <a>{children}</a>
-    </Link>
-  </div>
-);
-
-const Header = () => {
+const Header = ({ searchPlaceholder }) => {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState("");
   const [inputFocus, setInputFocus] = useState(false);
@@ -52,12 +41,28 @@ const Header = () => {
 
   useEffect(() => {
     const handleCalenderClick = (e) => {
-      !headerRef.current.contains(e.target) ? setInputFocus(false) : null;
+      !headerRef.current?.contains(e.target) ? setInputFocus(false) : null;
     };
 
     window.addEventListener("mousedown", handleCalenderClick);
     return () => window.removeEventListener("mousedown", handleCalenderClick);
   }, [headerRef]);
+
+  const searchHandler = () => {
+    setInputFocus(false);
+
+    searchInput
+      ? router.push({
+          pathname: "/search",
+          query: {
+            location: searchInput,
+            startDate: dateRangeState[0].startDate.toISOString(),
+            endDate: dateRangeState[0].endDate.toISOString(),
+            guestCount,
+          },
+        })
+      : null;
+  };
 
   return (
     <div
@@ -74,18 +79,33 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className="header__search-bar flex-grow md:max-w-sm lg:ml-24 flex items-center border-2 shadow-sm hover:shadow transition-shadow rounded-full pr-1.5">
-            <input
-              className="h-12 outline-none font-semibold px-4 rounded-full flex-grow placeholder:text-black cursor-pointer focus:cursor-text text-center md:text-left"
-              id="header-input"
-              type="search"
-              placeholder="Where are you going?"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              onClick={() => setInputFocus(true)}
-              onFocus={() => setInputFocus(true)}
-            />
-            <button type="submit">
+          <div className="header__search-bar flex-grow md:max-w-[400px] lg:ml-24 flex items-center border-2 shadow-sm hover:shadow transition-shadow rounded-full pr-1.5">
+            <form
+              className="flex-grow"
+              id="headerSearchForm"
+              onSubmit={(e) => {
+                e.preventDefault();
+                searchHandler();
+              }}>
+              <input
+                className={`${
+                  searchPlaceholder
+                    ? "placeholder:text-gray-400 placeholder:capitalize"
+                    : "placeholder:text-black"
+                } h-12 w-full outline-none font-semibold pl-4 pr-1 rounded-full cursor-pointer focus:cursor-text text-center md:text-left`}
+                id="header-input"
+                type="search"
+                placeholder={searchPlaceholder || "Where are you going?"}
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                onClick={() => setInputFocus(true)}
+                onFocus={() => setInputFocus(true)}
+                onKeyUp={(e) => {
+                  e.key === 13 ? alert("shit") : null;
+                }}
+              />
+            </form>
+            <button type="submit" form="headerSearchForm">
               <SearchIcon className="h-8 text-white bg-red-500 rounded-full p-2" />
             </button>
           </div>
@@ -136,7 +156,7 @@ const Header = () => {
               className="text-gray-500 hover:bg-gray-100 transition-colors rounded-full py-1 px-4"
               onClick={() => {
                 setInputFocus(false);
-                console.log(inputFocus);
+                setSearchInput("");
                 setDateRangeState([calenderRanges]);
                 setGuestCount(1);
               }}>
@@ -144,7 +164,7 @@ const Header = () => {
             </button>
             <button
               className="text-red-400 hover:bg-red-100 transition-colors rounded-full py-1 px-4"
-              onClick={() => router.push("/search")}>
+              onClick={searchHandler}>
               Search
             </button>
           </div>
@@ -153,5 +173,16 @@ const Header = () => {
     </div>
   );
 };
+
+const TransBtn = ({ children, samePadding }) => (
+  <div
+    className={`font-semibold hover:bg-gray-100 transition-colors duration-200 rounded-full cursor-pointer ${
+      samePadding ? "p-2" : "py-2 px-4"
+    }`}>
+    <Link href="#">
+      <a>{children}</a>
+    </Link>
+  </div>
+);
 
 export default Header;

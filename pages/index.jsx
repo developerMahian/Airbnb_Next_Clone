@@ -6,7 +6,7 @@ import MiddleCard from "../components/MiddleCard";
 import BottomCard from "../components/BottomCard";
 import Footer from "../components/Footer";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const exploreData = await fetch("https://links.papareact.com/pyp").then(
     (res) => res.json()
   );
