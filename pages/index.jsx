@@ -32,7 +32,7 @@ const HomePage = ({ exploreData, liveAnywhereData }) => (
 
     <main className="max-w-4xl mx-auto p-4">
       <section className="top-cards mb-8">
-        <h1 className="heading-1 py-2 mb-3">Explore Nearby</h1>
+        <h1 className="text-3xl font-extrabold py-2 mb-3">Explore Nearby</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {exploreData?.map(({ img, location, distance }) => (
@@ -47,7 +47,7 @@ const HomePage = ({ exploreData, liveAnywhereData }) => (
       </section>
 
       <section className="middle-slider mb-16">
-        <h1 className="heading-1 py-2 mb-3">Live Anywhere</h1>
+        <h1 className="text-3xl font-extrabold py-2 mb-3">Live Anywhere</h1>
 
         <div className="flex space-x-4 overflow-scroll scrollbar-hide touch-pan-x p-3 -ml-3">
           {liveAnywhereData?.map(({ img, title }) => (

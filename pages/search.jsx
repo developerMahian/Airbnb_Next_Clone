@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { parseISO } from "date-fns";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PlaceCard from "../components/PlaceCard";
-import { parseISO } from "date-fns";
+import MapComponent from "../components/Map";
 
 export async function getServerSideProps() {
   const searchResults = await fetch("https://links.papareact.com/isz").then(
@@ -16,8 +17,6 @@ export async function getServerSideProps() {
 const SearchPage = ({ searchResults }) => {
   const router = useRouter();
   const { location, startDate, endDate, guestCount } = router.query;
-
-  console.log(searchResults);
 
   const parsingDate = (date) => {
     const dateObj = parseISO(date);
@@ -45,25 +44,33 @@ const SearchPage = ({ searchResults }) => {
         searchPlaceholder={`${location}  |  ${dateRange}  |  ${guestCount} guests`}
       />
 
-      <main className="min-h-[55vh] mt-28 container mx-auto px-2 flex flex-col">
-        <div className="top-info text-xs font-medium mb-1">
-          300+ stays - {dateRange} - for {guestCount} guests
-        </div>
-        <h1 className="heading-1 mb-4">
-          Stays in <span className="capitalize">{location}</span>
-        </h1>
+      <main className="mb-14 flex">
+        <section className="places mt-28 px-3 w-full flex flex-col">
+          <div className="top-info text-xs font-medium mb-1">
+            300+ stays - {dateRange} - for {guestCount} guests
+          </div>
+          <h1 className="text-3xl font-extrabold mb-4">
+            Stays in <span className="capitalize">{location}</span>
+          </h1>
 
-        <div className="filters space-x-3 mb-4">
-          <FilterBtn>Cancelation Flexibility</FilterBtn>
-          <FilterBtn>Type of Place</FilterBtn>
-          <FilterBtn>Price</FilterBtn>
-          <FilterBtn>Rooms and Beds</FilterBtn>
-          <FilterBtn>More filters</FilterBtn>
-        </div>
+          <div className="filters flex flex-wrap gap-3 mb-4">
+            <FilterBtn>Cancelation Flexibility</FilterBtn>
+            <FilterBtn>Type of Place</FilterBtn>
+            <FilterBtn>Price</FilterBtn>
+            <FilterBtn>Rooms and Beds</FilterBtn>
+            <FilterBtn>More filters</FilterBtn>
+          </div>
 
-        {searchResults?.map((propObj, index) => (
-          <PlaceCard key={index} {...propObj} />
-        ))}
+          {searchResults?.map((propObj, index) => (
+            <PlaceCard key={index} {...propObj} />
+          ))}
+        </section>
+
+        <section className="map hidden md:inline-flex relative min-w-[325px] xl:min-w-[425px]  mt-20">
+          <div className="w-full h-[calc(100vh-80px)] fixed">
+            <MapComponent searchResults={searchResults} />
+          </div>
+        </section>
       </main>
 
       <Footer />
@@ -72,7 +79,7 @@ const SearchPage = ({ searchResults }) => {
 };
 
 const FilterBtn = ({ children }) => (
-  <button className="inline-block px-3 py-1 border rounded-full font-medium hover:shadow-md active:bg-gray-100 active:scale-95 transition">
+  <button className="inline-block px-3 py-1 border rounded-full font-medium whitespace-nowrap hover:shadow-md active:bg-gray-100 active:scale-95 transition">
     {children}
   </button>
 );

@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.flex-all-cen {
-  @apply flex justify-center items-center;
-}
-.flex-between {
-  @apply flex justify-between items-center;
-}
-
-.heading-1 {
-  @apply text-3xl font-extrabold;
-}
-.heading-2 {
-  @apply text-2xl font-extrabold;
-}
-.heading-3 {
-  @apply text-lg font-bold;
-}
-
 * {
   font-family: inherit;
   font-weight: inherit;
@@ -32,6 +15,7 @@ body {
   font-family: "Manrope", sans-serif;
   font-size: 14px;
   color: #222;
+  overflow-x: hidden;
 }
 
 button,
@@ -45,4 +29,9 @@ img {
 
 .rdrDayNumber {
   font-weight: 600 !important;
+}
+
+a.mapboxgl-ctrl-logo,
+.mapboxgl-ctrl-bottom-right {
+  display: none;
 }

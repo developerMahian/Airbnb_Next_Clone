@@ -15,7 +15,7 @@ const Document = () => (
       />
     </Head>
 
-    <body>
+    <body className="debug-screens">
       <Main />
       <NextScript />
     </body>

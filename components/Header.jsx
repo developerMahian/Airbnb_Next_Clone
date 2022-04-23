@@ -69,7 +69,7 @@ const Header = ({ searchPlaceholder }) => {
       className="header-wrapper fixed top-0 right-0 left-0 z-20 shadow-md bg-white"
       ref={headerRef}>
       <header>
-        <div className="container mx-auto py-3 px-2 h-20 flex-between">
+        <div className="py-3 px-3 md:px-8 h-20 w-full flex justify-between items-center">
           <div className="header__logo text-red-500 hidden md:block">
             <Link href="/">
               <a>
@@ -126,7 +126,7 @@ const Header = ({ searchPlaceholder }) => {
       <div
         className={`${
           inputFocus ? "scale-100" : "scale-0"
-        } absolute top-20 z-10 w-full bg-white shadow-xl origin-top transition-transform duration-300 pb-4 flex-all-cen`}
+        } absolute top-20 z-10 w-full bg-white shadow-xl origin-top transition-transform duration-300 pb-4 flex justify-center items-center`}
         onClick={() => setInputFocus(true)}>
         <div className="inner-wrapper font-semibold">
           <DateRangePicker
@@ -136,10 +136,10 @@ const Header = ({ searchPlaceholder }) => {
             onChange={(item) => setDateRangeState([item.selection])}
           />
 
-          <div className="guest-count flex-between border-b mb-2">
+          <div className="guest-count flex justify-between items-center border-b mb-2">
             <h2 className="text-xl font-bold">Number of Guests</h2>
 
-            <div className="flex-all-cen">
+            <div className="flex justify-center items-center">
               <UsersIcon className="h-5" />
               <input
                 className="w-14 pl-1.5 text-lg text-red-500 outline-none"
