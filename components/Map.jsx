@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Map, {
   FullscreenControl,
   GeolocateControl,
@@ -10,8 +10,33 @@ import Map, {
 import getCenter from "geolib/es/getCenter";
 
 const MapComponent = ({ searchResults }) => {
-  const [showMarkerPopup, setShowMarkerPopup] = useState(false);
   const [selectedMarker, setSelectedMarker] = useState({});
+  console.log(selectedMarker);
+
+  const markers = useMemo(
+    () =>
+      searchResults?.map((result, index) => (
+        <Marker
+          key={index}
+          latitude={result.lat}
+          longitude={result.long}
+          anchor="bottom"
+          onClick={(e) => {
+            e.originalEvent.stopPropagation();
+            setSelectedMarker(result);
+          }}
+        >
+          <p
+            role="img"
+            className="cursor-pointer animate-bounce"
+            aria-label="push-pin"
+          >
+            📌
+          </p>
+        </Marker>
+      )),
+    [searchResults]
+  );
 
   const markerPos = searchResults?.map((result) => ({
     longitude: result.long,
@@ -40,31 +65,18 @@ const MapComponent = ({ searchResults }) => {
       <NavigationControl position="top-left" />
       <ScaleControl />
 
-      {searchResults?.map((result, index) => (
-        <div key={index}>
-          <Marker latitude={result.lat} longitude={result.long} anchor="bottom">
-            <p
-              role="img"
-              className="cursor-pointer animate-bounce"
-              onMouseDown={() => setSelectedMarker(result)}
-              aria-label="push-pin"
-            >
-              📌
-            </p>
-          </Marker>
+      {markers}
 
-          {selectedMarker.long === result.long && (
-            <Popup
-              // closeOnClick={true}
-              onClose={() => setSelectedMarker({})}
-              latitude={result.lat}
-              longitude={result.long}
-            >
-              {result.title}
-            </Popup>
-          )}
-        </div>
-      ))}
+      {!selectedMarker && (
+        <Popup
+          anchor="top"
+          latitude={selectedMarker.lat}
+          longitude={selectedMarker.long}
+          onClose={() => setSelectedMarker({})}
+        >
+          {selectedMarker.title}
+        </Popup>
+      )}
     </Map>
   );
 };

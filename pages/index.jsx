@@ -5,6 +5,7 @@ import HomeBanner from "../components/HomeBanner";
 import MiddleCard from "../components/MiddleCard";
 import BottomCard from "../components/BottomCard";
 import Footer from "../components/Footer";
+import { tns } from "tiny-slider";
 
 export async function getStaticProps() {
   const exploreData = await fetch("https://links.papareact.com/pyp").then(
@@ -16,6 +17,13 @@ export async function getStaticProps() {
 
   return { props: { exploreData, liveAnywhereData } };
 }
+
+const slider = tns({
+  container: ".my-slider",
+  items: 3,
+  slideBy: "page",
+  autoplay: true,
+});
 
 const HomePage = ({ exploreData, liveAnywhereData }) => (
   <>
@@ -49,7 +57,8 @@ const HomePage = ({ exploreData, liveAnywhereData }) => (
       <section className="middle-slider mb-16">
         <h1 className="text-3xl font-extrabold py-2 mb-3">Live Anywhere</h1>
 
-        <div className="flex space-x-4 overflow-scroll scrollbar-hide touch-pan-x p-3 -ml-3">
+        {/* <div className="my-slider flex space-x-4 overflow-scroll scrollbar-hide touch-pan-x p-3 -ml-3"> */}
+        <div className="my-slider">
           {liveAnywhereData?.map(({ img, title }) => (
             <MiddleCard key={img} img={img} title={title} />
           ))}

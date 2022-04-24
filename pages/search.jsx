@@ -44,21 +44,23 @@ const SearchPage = ({ searchResults }) => {
         searchPlaceholder={`${location}  |  ${dateRange}  |  ${guestCount} guests`}
       />
 
-      <main className="mb-14 flex">
+      <main className="mb-10 h-full flex">
         <section className="places mt-28 px-3 w-full flex flex-col">
-          <div className="top-info text-xs font-medium mb-1">
-            300+ stays - {dateRange} - for {guestCount} guests
-          </div>
-          <h1 className="text-3xl font-extrabold mb-4">
-            Stays in <span className="capitalize">{location}</span>
-          </h1>
+          <div className="top-content pl-2">
+            <div className="top-info text-xs font-medium mb-1">
+              300+ stays - {dateRange} - for {guestCount} guests
+            </div>
+            <h1 className="text-3xl font-extrabold mb-4">
+              Stays in <span className="capitalize">{location}</span>
+            </h1>
 
-          <div className="filters flex flex-wrap gap-3 mb-4">
-            <FilterBtn>Cancelation Flexibility</FilterBtn>
-            <FilterBtn>Type of Place</FilterBtn>
-            <FilterBtn>Price</FilterBtn>
-            <FilterBtn>Rooms and Beds</FilterBtn>
-            <FilterBtn>More filters</FilterBtn>
+            <div className="filters flex flex-wrap gap-3 mb-4">
+              <FilterBtn>Cancelation Flexibility</FilterBtn>
+              <FilterBtn>Type of Place</FilterBtn>
+              <FilterBtn>Price</FilterBtn>
+              <FilterBtn>Rooms and Beds</FilterBtn>
+              <FilterBtn>More filters</FilterBtn>
+            </div>
           </div>
 
           {searchResults?.map((propObj, index) => (
@@ -66,14 +68,16 @@ const SearchPage = ({ searchResults }) => {
           ))}
         </section>
 
-        <section className="map hidden md:inline-flex relative min-w-[325px] xl:min-w-[425px]  mt-20">
+        <section className="map hidden md:inline-flex relative min-w-[325px] xl:min-w-[450px] h-full mt-20 bg-gray-200">
           <div className="w-full h-[calc(100vh-80px)] fixed">
             <MapComponent searchResults={searchResults} />
           </div>
         </section>
       </main>
 
-      <Footer />
+      <div className="block md:hidden">
+        <Footer />
+      </div>
     </>
   );
 };

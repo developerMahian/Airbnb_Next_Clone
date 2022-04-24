@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Footer = () => (
-  <footer className="px-3 md:px-16 mt-6 bg-gray-100">
+  <footer className="px-3 md:px-16 pt-6 bg-gray-100">
     <div className="container mx-auto px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
       <section>
         <div>

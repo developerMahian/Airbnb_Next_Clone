@@ -67,7 +67,8 @@ const Header = ({ searchPlaceholder }) => {
   return (
     <div
       className="header-wrapper fixed top-0 right-0 left-0 z-20 shadow-md bg-white"
-      ref={headerRef}>
+      ref={headerRef}
+    >
       <header>
         <div className="py-3 px-3 md:px-8 h-20 w-full flex justify-between items-center">
           <div className="header__logo text-red-500 hidden md:block">
@@ -79,14 +80,15 @@ const Header = ({ searchPlaceholder }) => {
             </Link>
           </div>
 
-          <div className="header__search-bar flex-grow md:max-w-[400px] lg:ml-24 flex items-center border-2 shadow-sm hover:shadow transition-shadow rounded-full pr-1.5">
+          <div className="header__search-bar flex-grow md:max-w-[430px] lg:ml-24 flex items-center border-2 shadow-sm hover:shadow transition-shadow rounded-full pr-1.5">
             <form
               className="flex-grow"
               id="headerSearchForm"
               onSubmit={(e) => {
                 e.preventDefault();
                 searchHandler();
-              }}>
+              }}
+            >
               <input
                 className={`${
                   searchPlaceholder
@@ -127,7 +129,8 @@ const Header = ({ searchPlaceholder }) => {
         className={`${
           inputFocus ? "scale-100" : "scale-0"
         } absolute top-20 z-10 w-full bg-white shadow-xl origin-top transition-transform duration-300 pb-4 flex justify-center items-center`}
-        onClick={() => setInputFocus(true)}>
+        onClick={() => setInputFocus(true)}
+      >
         <div className="inner-wrapper font-semibold">
           <DateRangePicker
             ranges={dateRangeState}
@@ -159,12 +162,14 @@ const Header = ({ searchPlaceholder }) => {
                 setSearchInput("");
                 setDateRangeState([calenderRanges]);
                 setGuestCount(1);
-              }}>
+              }}
+            >
               Reset
             </button>
             <button
               className="text-red-400 hover:bg-red-100 transition-colors rounded-full py-1 px-4"
-              onClick={searchHandler}>
+              onClick={searchHandler}
+            >
               Search
             </button>
           </div>
@@ -178,7 +183,8 @@ const TransBtn = ({ children, samePadding }) => (
   <div
     className={`font-semibold hover:bg-gray-100 transition-colors duration-200 rounded-full cursor-pointer ${
       samePadding ? "p-2" : "py-2 px-4"
-    }`}>
+    }`}
+  >
     <Link href="#">
       <a>{children}</a>
     </Link>
