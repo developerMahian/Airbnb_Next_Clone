@@ -1,22 +1,43 @@
 import { useState } from "react";
 import Image from "next/image";
-import { StarIcon } from "@heroicons/react/solid";
 import { HeartIcon } from "@heroicons/react/outline";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const PlaceCard = ({
-  img,
+  externalID,
+  coverPhoto: { url: img },
   title,
-  location,
-  description,
-  star,
   price,
-  total,
+  rooms,
+  baths,
+  purpose,
+  rentFrequency,
 }) => {
   const [heartActive, setHeartActive] = useState(false);
 
+  const router = useRouter();
+
+  const priceInGrands = (price / 1000).toString();
+  const priceDotIndex = priceInGrands.indexOf(".");
+
+  const formattedPrice = priceInGrands.substring(0, priceDotIndex + 3);
+
+  const handleCardClick = () => {
+    router.push({
+      pathname: "/property",
+      query: {
+        externalID,
+      },
+    });
+  };
+
   return (
-    <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-4 py-5 px-2 cursor-pointer hover:shadow-lg transition-shadow ease-out">
-      <div className="card-img relative min-w-[320px] min-h-[200px] hover:opacity-90 transition-opacity ease-out">
+    <div
+      className="flex flex-col relative gap-4 py-5 px-2 mb-3 cursor-pointer hover:shadow-lg transition-shadow ease-out"
+      onClick={handleCardClick}
+    >
+      <div className="card-img relative min-h-[300px] hover:opacity-90 transition-opacity ease-out">
         <Image
           className="rounded-xl bg-gray-200"
           src={img}
@@ -25,33 +46,33 @@ const PlaceCard = ({
         />
       </div>
 
-      <div className="card-content relative flex flex-col gap-4 justify-between w-full lg:min-h-[200px] pr-3">
-        <div className="top-block">
-          <div className="flex justify-between gap-4">
-            <h2 className="text-lg font-bold mb-2">{title}</h2>
-            <HeartIcon
-              className={`${
-                heartActive && "fill-red-500"
-              } h-6 active:scale-125 transition-transform`}
-              onClick={() => setHeartActive(!heartActive)}
-            />
-          </div>
-
-          <p className="text-xs font-medium">{location}</p>
-          <p className="text-[13px]">{description}</p>
+      <div className="card-content relative flex flex-col gap-4 w-full">
+        <div className="flex justify-between items-start gap-4">
+          <h2 className="w-4/5 text-lg font-semibold mb-2">{title}</h2>
+          <HeartIcon
+            className={`${
+              heartActive && "fill-red-500"
+            } h-7 active:scale-125 transition-transform`}
+            onClick={() => setHeartActive(!heartActive)}
+          />
         </div>
 
-        <div className="bottom-block flex items-end justify-between mt-2">
-          <div className="rating font-bold flex items-center gap-1">
-            <StarIcon className="h-4 text-red-400" /> {star}
-          </div>
-          <div className="pricing text-right">
-            <div className="per-night text-lg md:text-xl font-bold">
-              {price}
-            </div>
-            <div className="total text-base md:text-lg font-extralight">
-              {total}
-            </div>
+        <div className="flex justify-between items-center gap-6 flex-wrap">
+          <p className="flex items-center gap-3 text-base font-medium text-gray-600">
+            <strong>{purpose.toUpperCase()}</strong>
+            {rooms ? (
+              <>
+                <span className="text-[6px]">🟢</span> {rooms} Room
+              </>
+            ) : null}
+            <span className="text-[6px]">🟢</span> {baths} Bathroom
+          </p>
+
+          <div>
+            <span className="text-lg md:text-xl font-bold mr-1">{`$${formattedPrice}K`}</span>
+            <span className="text- md:text-lg font-medium">
+              {rentFrequency ? "month" : "price"}
+            </span>
           </div>
         </div>
       </div>

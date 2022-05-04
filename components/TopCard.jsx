@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 const TopCard = ({ img, location, distance }) => (
-  <div className="flex items-center gap-4 rounded-lg p-1 hover:bg-gray-100 hover:scale-105 transition-all ease-out cursor-pointer">
-    <div className="relative w-12 h-12 rounded-lg overflow-hidden">
+  <div className="flex items-center gap-3 rounded-lg p-1 hover:bg-gray-100 hover:scale-105 transition-all ease-out cursor-pointer">
+    <div className="relative w-14 h-14 rounded-lg overflow-hidden">
       <Image
         src={img}
         alt={`${location}s' popular place image`}
@@ -10,8 +10,8 @@ const TopCard = ({ img, location, distance }) => (
       />
     </div>
     <div>
-      <p className="text-[15px] font-bold">{location}</p>
-      <p className="text-xs">{distance}</p>
+      <p className="text-base font-bold">{location}</p>
+      <p className="text-sm">{distance}</p>
     </div>
   </div>
 );

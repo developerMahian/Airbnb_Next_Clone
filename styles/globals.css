@@ -8,7 +8,7 @@
 }
 
 *::selection {
-  background-color: #ffb8b8;
+  background-color: #ff8686;
 }
 
 body {
@@ -34,4 +34,12 @@ img {
 a.mapboxgl-ctrl-logo,
 .mapboxgl-ctrl-bottom-right {
   display: none;
+}
+
+.mapboxgl-popup-close-button {
+  right: 5px;
+}
+
+.mapboxgl-ctrl-top-left {
+  margin-top: 44px;
 }

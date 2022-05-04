@@ -8,39 +8,61 @@ import Map, {
   ScaleControl,
 } from "react-map-gl";
 import getCenter from "geolib/es/getCenter";
+import Image from "next/image";
 
-const MapComponent = ({ searchResults }) => {
+const MapComponent = ({ placesData }) => {
   const [selectedMarker, setSelectedMarker] = useState({});
-  console.log(selectedMarker);
 
   const markers = useMemo(
     () =>
-      searchResults?.map((result, index) => (
-        <Marker
-          key={index}
-          latitude={result.lat}
-          longitude={result.long}
-          anchor="bottom"
-          onClick={(e) => {
-            e.originalEvent.stopPropagation();
-            setSelectedMarker(result);
-          }}
-        >
-          <p
-            role="img"
-            className="cursor-pointer animate-bounce"
-            aria-label="push-pin"
+      placesData?.map((result, index) => (
+        <div key={index}>
+          <Marker
+            latitude={result.geography.lat}
+            longitude={result.geography.lng}
+            anchor="bottom"
+            onClick={(e) => {
+              e.originalEvent.stopPropagation();
+              setSelectedMarker(result);
+            }}
           >
-            📌
-          </p>
-        </Marker>
+            <p
+              role="img"
+              className="cursor-pointer animate-bounce"
+              aria-label="push-pin"
+            >
+              📌
+            </p>
+          </Marker>
+
+          {result.id === selectedMarker.id && (
+            <Popup
+              anchor="top"
+              latitude={result?.geography.lat}
+              longitude={result?.geography.lng}
+              onClose={() => setSelectedMarker({})}
+            >
+              <div className="flex flex-col p-1">
+                <p className="font-semibold mb-2 leading-4">{result?.title}</p>
+
+                <div className="relative h-28 w-full bg-slate-200 rounded-md overflow-hidden">
+                  <Image
+                    src={selectedMarker?.coverPhoto.url}
+                    alt={selectedMarker?.title + "image"}
+                    layout="fill"
+                  />
+                </div>
+              </div>
+            </Popup>
+          )}
+        </div>
       )),
-    [searchResults]
+    [placesData, selectedMarker]
   );
 
-  const markerPos = searchResults?.map((result) => ({
-    longitude: result.long,
-    latitude: result.lat,
+  const markerPos = placesData?.map((result) => ({
+    longitude: result.geography.lng,
+    latitude: result.geography.lat,
   }));
 
   const mapCenterPos = getCenter(markerPos);
@@ -58,25 +80,14 @@ const MapComponent = ({ searchResults }) => {
       {...mapView}
       onMove={(e) => setMapView(e.viewState)}
       mapboxAccessToken={process.env.MAPBOX_TOKEN}
-      mapStyle={"mapbox://styles/devmahian/cl28q8nn7001614m1wg4rgl80"}
+      mapStyle={"mapbox://styles/mapbox/satellite-v9"}
     >
-      <GeolocateControl position="top-left" />
+      <GeolocateControl className="mt-10 opacity-0" position="top-left" />
       <FullscreenControl position="top-left" />
       <NavigationControl position="top-left" />
       <ScaleControl />
 
       {markers}
-
-      {!selectedMarker && (
-        <Popup
-          anchor="top"
-          latitude={selectedMarker.lat}
-          longitude={selectedMarker.long}
-          onClose={() => setSelectedMarker({})}
-        >
-          {selectedMarker.title}
-        </Popup>
-      )}
     </Map>
   );
 };
