@@ -10,7 +10,7 @@ import { ArrowCircleLeftIcon } from "@heroicons/react/solid";
 import { fetchApi } from "../utils/fetchApi";
 import { rentalList, forSaleList } from "../StaticData/propertyList";
 
-const SearchPage = () => {
+const SearchResultPage = () => {
   const [propertiesRentalData, setPropertiesRentalData] = useState(rentalList);
   const [propertiesForSaleData, setPropertiesForSaleData] =
     useState(forSaleList);
@@ -189,4 +189,4 @@ const FilterBtn = ({ children, onFilterClick }) => (
   </button>
 );
 
-export default SearchPage;
+export default SearchResultPage;

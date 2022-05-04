@@ -121,7 +121,7 @@ const Header = ({ searchPlaceholder }) => {
       alert("(Only UAE locations): Please make sure you've typed correctly.");
     } else {
       router.push({
-        pathname: "/search",
+        pathname: "/searchpush",
         query: {
           placeName: selectedSuggestion.name,
           locationExternalIDs: selectedSuggestion.locationExternalIDs,
