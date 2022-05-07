@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { fetchApi } from "../utils/fetchApi";
+import Header from "../components/Header";
+import ImageCarousel from "../components/ImageCarousel";
+// import { useRouter } from "next/router";
+// import { fetchApi } from "../utils/fetchApi";
 import { propertyDetail } from "../StaticData/propertyDetail";
 
 const Property = () => {
   const [details, setDetails] = useState({});
 
-  const router = useRouter();
-  const { externalID } = router.query;
+  const { title, photos } = details;
+
+  // console.log({ details, photos });
+
+  // const router = useRouter();
+  // const { externalID } = router.query;
 
   useEffect(() => {
     setDetails(propertyDetail);
@@ -17,9 +23,14 @@ const Property = () => {
   }, [details]);
 
   return (
-    <button className="text-5xl mx-auto block mt-20">
-      Details Pages coming soon....
-    </button>
+    <>
+      <Header />
+
+      <main className="container md:px-4 xl:px-8 mt-20 pt-5">
+        <h1 className="text-2xl font-bold mb-6">{title}</h1>
+        <ImageCarousel photos={photos} />
+      </main>
+    </>
   );
 };
 

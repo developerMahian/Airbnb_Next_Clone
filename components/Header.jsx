@@ -13,10 +13,10 @@ import {
   UsersIcon,
 } from "@heroicons/react/solid";
 import { LocationMarkerIcon } from "@heroicons/react/outline";
-import FullLogo from "../../assets/svg/full-logo.svg";
-import HalfLogo from "../../assets/svg/half-logo.svg";
+import FullLogo from "./SvgAssets/FullLogo";
+import HalfLogo from "./SvgAssets/HalfLogo";
 // import { fetchApi } from "../../utils/fetchApi";
-import { autoCompleteStaticData } from "../../StaticData/autoCompleteData";
+import { autoCompleteStaticData } from "../StaticData/autoCompleteData";
 
 const Header = ({ searchPlaceholder }) => {
   const router = useRouter();
@@ -121,7 +121,7 @@ const Header = ({ searchPlaceholder }) => {
       alert("(Only UAE locations): Please make sure you've typed correctly.");
     } else {
       router.push({
-        pathname: "/searchpush",
+        pathname: "/searchresult",
         query: {
           placeName: selectedSuggestion.name,
           locationExternalIDs: selectedSuggestion.locationExternalIDs,
@@ -138,18 +138,22 @@ const Header = ({ searchPlaceholder }) => {
       className="header-wrapper fixed top-0 right-0 left-0 z-20 shadow-md bg-white"
       ref={headerRef}
     >
-      <header className="z-20">
-        <div className="py-3 px-3 md:px-8 h-20 w-full flex justify-between items-center">
+      <header className="container z-20">
+        <div className="py-3 md:px-4 xl:px-8 h-20 w-full flex justify-between items-center">
           <div className="header__logo text-red-500 hidden md:block">
             <Link href="/">
               <a>
-                <FullLogo className="hidden lg:block" />
-                <HalfLogo className="lg:hidden block" />
+                <div className="hidden lg:block">
+                  <FullLogo />
+                </div>
+                <div className="block lg:hidden">
+                  <HalfLogo />
+                </div>
               </a>
             </Link>
           </div>
 
-          <div className="header__search-bar flex-grow md:max-w-[430px] lg:ml-24 flex items-center border-2 shadow-sm hover:shadow transition-shadow rounded-full pr-1.5">
+          <div className="header__search-bar flex-grow md:max-w-[350px] lg:ml-24 flex items-center border-2 shadow-sm hover:shadow transition-shadow rounded-full pr-1.5">
             <form
               className="flex-grow relative"
               id="headerSearchForm"

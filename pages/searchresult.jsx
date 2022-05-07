@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { parseISO } from "date-fns";
-import Header from "../components/Header/Header";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PlaceCard from "../components/PlaceCard";
 import MapComponent from "../components/Map";

@@ -10,8 +10,5 @@ module.exports = {
       padding: "8px",
     },
   },
-  plugins: [
-    require("tailwind-scrollbar-hide"),
-    require("tailwindcss-debug-screens"),
-  ],
+  plugins: [require("tailwindcss-debug-screens")],
 };

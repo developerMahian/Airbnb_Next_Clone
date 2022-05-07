@@ -16,12 +16,4 @@ module.exports = {
       "pk.eyJ1IjoiZGV2bWFoaWFuIiwiYSI6ImNsMTBybmxiZjA3dXMzanJ6bWU0Z29pcmEifQ.sCvHvY7FOvrofMHn6hrQcg",
     BAYUT_API_KEY: "f5e153c0c6msh29f2bdb7028b126p1fe0f5jsn3fa25ffd5423",
   },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"],
-    });
-
-    return config;
-  },
 };
