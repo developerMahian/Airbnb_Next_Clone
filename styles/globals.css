@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+:root {
+  --primary-color: #ef4444;
+}
+
 * {
   font-family: inherit;
   font-weight: inherit;
@@ -27,10 +33,20 @@ img {
   object-fit: cover;
 }
 
+/***
+*
+* calander date ranges
+*
+***/
 .rdrDayNumber {
   font-weight: 600 !important;
 }
 
+/***
+*
+* mapbox
+*
+***/
 a.mapboxgl-ctrl-logo,
 .mapboxgl-ctrl-bottom-right {
   display: none;
@@ -42,4 +58,108 @@ a.mapboxgl-ctrl-logo,
 
 .mapboxgl-ctrl-top-left {
   margin-top: 44px;
+}
+
+.mapboxgl-ctrl .mapboxgl-ctrl-compass {
+  display: none;
+}
+
+/***
+*
+* image-gallery-container 
+*
+***/
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.image-gallery-image:hover {
+  /* cursor: zoom-in; */
+}
+
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+  padding: 0;
+}
+
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+  stroke-width: 2;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transform: scale(0.4);
+  background-color: var(--primary-color);
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+}
+
+.image-gallery-icon,
+.image-gallery-bullets {
+  opacity: 0;
+}
+
+.image-gallery-bullets {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.image-gallery-slide-wrapper:hover > .image-gallery-icon,
+.image-gallery-slide-wrapper:hover > .image-gallery-bullets {
+  opacity: 1;
+}
+
+.image-gallery-left-nav .image-gallery-svg {
+  padding-right: 6px;
+}
+
+.image-gallery-right-nav .image-gallery-svg {
+  padding-left: 6px;
+}
+
+.image-gallery-left-nav.image-gallery-icon:hover,
+.image-gallery-right-nav.image-gallery-icon:hover {
+  color: white;
+}
+
+.image-gallery-icon:focus {
+  outline-color: var(--primary-color);
+}
+
+.image-gallery-icon:hover {
+  color: var(--primary-color);
+}
+
+.image-gallery-left-nav.image-gallery-icon:hover > .image-gallery-svg,
+.image-gallery-right-nav.image-gallery-icon:hover > .image-gallery-svg {
+  transform: scale(0.425);
+  opacity: 1;
+}
+
+.image-gallery-bullets .image-gallery-bullet.active,
+.image-gallery-bullets .image-gallery-bullet.active:hover,
+.image-gallery-bullets .image-gallery-bullet:hover,
+.image-gallery-bullets .image-gallery-bullet.active:focus,
+.image-gallery-bullets .image-gallery-bullet:focus {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.image-gallery-thumbnail,
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:hover,
+.image-gallery-thumbnail:focus {
+  border-width: 3px;
+  border: none;
+}
+
+.image-gallery-thumbnail img {
+  border-radius: 8px;
+  border: 3px solid transparent;
+  transition: border 0.2s ease-in-out;
+}
+
+.image-gallery-thumbnail.active img,
+.image-gallery-thumbnail img:hover {
+  border-color: var(--primary-color);
 }

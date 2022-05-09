@@ -140,7 +140,7 @@ const Header = ({ searchPlaceholder }) => {
     >
       <header className="container z-20">
         <div className="py-3 md:px-4 xl:px-8 h-20 w-full flex justify-between items-center">
-          <div className="header__logo text-red-500 hidden md:block">
+          <div className="header__logo relative text-red-500 hidden md:block">
             <Link href="/">
               <a>
                 <div className="hidden lg:block">

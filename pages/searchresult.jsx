@@ -6,25 +6,31 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PlaceCard from "../components/PlaceCard";
 import MapComponent from "../components/Map";
-import { ArrowCircleLeftIcon } from "@heroicons/react/solid";
-import { fetchApi } from "../utils/fetchApi";
+import { ArrowCircleLeftIcon, MapIcon } from "@heroicons/react/solid";
+// import { fetchApi } from "../utils/fetchApi";
 import { rentalList, forSaleList } from "../StaticData/propertyList";
 
 const SearchResultPage = () => {
   const [propertiesRentalData, setPropertiesRentalData] = useState(rentalList);
   const [propertiesForSaleData, setPropertiesForSaleData] =
     useState(forSaleList);
+  const [allPropertiesData, setAllPropertiesData] = useState([
+    ...propertiesForSaleData,
+    ...propertiesRentalData,
+  ]);
+  const [placesData, setPlacesData] = useState([]);
   const [propertyPurpose, setPropertyPurpose] = useState("all");
 
   const leftSectionRef = useRef(null);
   const sectionHideIconRef = useRef(null);
+  const sectionMapRef = useRef(null);
+  const footerRef = useRef(null);
 
   const router = useRouter();
   const { placeName, locationExternalIDs, startDate, endDate, guestCount } =
     router.query;
 
   useEffect(() => {
-    console.log("API useEffect ran....");
     // fetchApi(
     //   `properties/list?locationExternalIDs=${locationExternalIDs}&purpose=for-rent`,
     //   false
@@ -34,8 +40,6 @@ const SearchResultPage = () => {
     //   false
     // ).then(({ hits }) => setPropertiesForSaleData(hits));
   }, []);
-
-  let allPropertiesData = [...propertiesForSaleData, ...propertiesRentalData];
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -47,9 +51,9 @@ const SearchResultPage = () => {
 
   shuffleArray(allPropertiesData);
 
-  const fullMapWidth = () => {
+  const fullMapWidth = (mobileParam) => {
     const sectionEl = leftSectionRef.current;
-    const hidingClasses = ["!w-0", "invisible", "!p-0", "-z-10"];
+    const hidingClasses = ["!w-0", "!h-0", "invisible", "!p-0", "-z-10"];
 
     sectionHideIconRef.current.classList.toggle("rotate-180");
 
@@ -57,20 +61,33 @@ const SearchResultPage = () => {
       hidingClasses.forEach((className) =>
         sectionEl.classList.toggle(className)
       );
+
+      if (mobileParam) {
+        sectionMapRef.current.classList.toggle("hidden");
+        footerRef.current.classList.toggle("hidden");
+      }
     }, 100);
   };
 
-  const filterPlacesData = () => {
-    if (propertyPurpose === "all") {
-      return allPropertiesData;
-    } else if (propertyPurpose === "for-rent") {
-      return propertiesRentalData;
-    } else if (propertyPurpose === "for-sale") {
-      return propertiesForSaleData;
-    }
-  };
+  useEffect(() => {
+    const filterPlacesData = {};
 
-  const placesData = filterPlacesData();
+    if (propertyPurpose === "all") {
+      filterPlacesData = allPropertiesData;
+    } else if (propertyPurpose === "for-rent") {
+      filterPlacesData = propertiesRentalData;
+    } else if (propertyPurpose === "for-sale") {
+      filterPlacesData = propertiesForSaleData;
+    }
+
+    setPlacesData(filterPlacesData);
+  }, [
+    placesData,
+    propertyPurpose,
+    allPropertiesData,
+    propertiesRentalData,
+    propertiesForSaleData,
+  ]);
 
   const parsingDate = (date, withOutYear = true) => {
     const dateObj = parseISO(date);
@@ -110,9 +127,17 @@ const SearchResultPage = () => {
         </div>
       ) : (
         <main className="flex mb-10">
+          <button
+            className="mobile-show-map md:hidden fixed top-[91%] left-1/2 translate-[-50%, -50%] w-24 -ml-12 font-bold text-white bg-gray-800 py-2 rounded-full opacity-80 hover:opacity-100 hover:scale-95 transition-all z-20"
+            onClick={() => fullMapWidth(true)}
+          >
+            Map
+            <MapIcon className="h-5 inline ml-1.5" />
+          </button>
+
           <section
             ref={leftSectionRef}
-            className="origin-left w-full md:w-3/4 duration-500 overflow-hidden mt-28 px-3 flex flex-col"
+            className="origin-left w-full h-full md:w-3/4 duration-500 overflow-hidden mt-28 px-3 flex flex-col"
             style={{ transitionProperty: "width" }}
           >
             <div className="top-content pl-2">
@@ -153,7 +178,10 @@ const SearchResultPage = () => {
             ))}
           </section>
 
-          <section className="hidden md:inline-flex relative w-full md:w-1/4 min-w-[400px] xl:min-w-[600px] h-full mt-20 bg-gray-200">
+          <section
+            ref={sectionMapRef}
+            className="hidden md:inline-flex relative w-full md:w-1/4 min-w-[400px] xl:min-w-[600px] h-full mt-20 bg-gray-200"
+          >
             <div className="w-full h-[calc(100vh-80px)] fixed">
               <button
                 className="absolute left-[7px] top-[10px] bg-white rounded-md px- p-1.5 z-20 active:scale-125 transition-transform duration-300"
@@ -173,7 +201,7 @@ const SearchResultPage = () => {
         </main>
       )}
 
-      <div className="block md:hidden">
+      <div ref={footerRef} className="block md:hidden">
         <Footer />
       </div>
     </>

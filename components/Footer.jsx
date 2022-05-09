@@ -1,143 +1,20 @@
+import { ArrowCircleUpIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 
 const Footer = () => (
-  <footer className="px-3 md:px-16 pt-6 bg-gray-100">
-    <div className="container mx-auto px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-      <section>
-        <div>
-          <h3 className="font-bold mb-3">Support</h3>
-        </div>
-        <ul className="space-y-3 text-[15px]">
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Help Center</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Safety information</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Cancellation options</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Our COVID-19 Response</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">
-                Supporting people with disabilities
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Report a neighborhood concern</a>
-            </Link>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <div>
-          <h3 className="font-bold mb-3">About</h3>
-        </div>
-        <ul className="space-y-3 text-[15px]">
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Newsroom</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Learn about new features</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Letter from our founders</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Careers</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Investors</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Airbnb Luxe</a>
-            </Link>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <div>
-          <h3 className="font-bold mb-3">Hosting</h3>
-        </div>
-        <ul className="space-y-3 text-[15px]">
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Try hosting</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">AirCover: protection for Hosts</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Explore hosting resources</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Visit our community forum</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">How to host responsibly</a>
-            </Link>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <div>
-          <h3 className="font-bold mb-3">Community</h3>
-        </div>
-        <ul className="space-y-3 text-[15px]">
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">
-                Airbnb.org: disaster relief housing
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Support Afghan refugees</a>
-            </Link>
-          </li>
-          <li>
-            <Link href={"#"}>
-              <a className="hover:underline">Combating discrimination</a>
-            </Link>
-          </li>
-        </ul>
-      </section>
+  <footer className="h-80 overflow-hidden relative mt-8">
+    <div className="flex flex-col items-center justify-end h-full pb-6 before:content-[''] before:absolute before:top-0 before:left-1/2 before:-ml-[75rem] before:w-[150rem] before:h-[150rem] before:rounded-[50%] before:bg-gray-100 before:-z-10">
+      <div className="text-gray-500 font-mono font-semibold mb-3">
+        Copyright © 2022, All Right Reserved{" "}
+        <Link href="#">
+          <a className="inline-block text-red-500 hover:text-red-600 hover:scale-105 transition-all duration-300">
+            DevMahian
+          </a>
+        </Link>
+      </div>
+      <button>
+        <ArrowCircleUpIcon className="h-16 text-red-500 hover:text-red-600 hover:scale-110 transition-all duration-300" />
+      </button>
     </div>
   </footer>
 );

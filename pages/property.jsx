@@ -9,6 +9,7 @@ const Property = () => {
   const [details, setDetails] = useState({});
 
   const { title, photos } = details;
+  console.log({ details });
 
   // console.log({ details, photos });
 
