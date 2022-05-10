@@ -74,8 +74,9 @@ a.mapboxgl-ctrl-logo,
   object-fit: cover;
 }
 
-.image-gallery-image:hover {
-  /* cursor: zoom-in; */
+.image-gallery-content.fullscreen .image-gallery-slide .image-gallery-image {
+  max-height: 100vh;
+  object-fit: contain;
 }
 
 .image-gallery-left-nav,

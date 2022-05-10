@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { HeartIcon } from "@heroicons/react/outline";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 const PlaceCard = ({
@@ -18,24 +17,17 @@ const PlaceCard = ({
 
   const router = useRouter();
 
-  const priceInGrands = (price / 1000).toString();
-  const priceDotIndex = priceInGrands.indexOf(".");
+  const formattedPrice = () => {
+    const priceInGrands = (price / 1000).toString();
+    const priceDotIndex = priceInGrands.indexOf(".");
 
-  const formattedPrice = priceInGrands.substring(0, priceDotIndex + 3);
-
-  const handleCardClick = () => {
-    router.push({
-      pathname: "/property",
-      query: {
-        externalID,
-      },
-    });
+    return priceInGrands.substring(0, priceDotIndex + 3);
   };
 
   return (
     <div
       className="flex flex-col relative gap-4 py-5 px-2 mb-3 cursor-pointer hover:shadow-lg transition-shadow ease-out"
-      onClick={handleCardClick}
+      onClick={() => router.push(`/property/${externalID}`)}
     >
       <div className="card-img relative min-h-[300px] hover:opacity-90 transition-opacity ease-out">
         <Image
@@ -69,7 +61,9 @@ const PlaceCard = ({
           </p>
 
           <div>
-            <span className="text-lg md:text-xl font-bold mr-1">{`$${formattedPrice}K`}</span>
+            <span className="text-lg md:text-xl font-bold mr-1">
+              <span className="tracking-tighter">AED</span> {formattedPrice()}K
+            </span>
             <span className="text- md:text-lg font-medium">
               {rentFrequency ? "month" : "price"}
             </span>

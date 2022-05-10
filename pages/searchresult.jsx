@@ -21,6 +21,7 @@ const SearchResultPage = () => {
   const [placesData, setPlacesData] = useState([]);
   const [propertyPurpose, setPropertyPurpose] = useState("all");
 
+  const mobileMapBtnRef = useRef(null);
   const leftSectionRef = useRef(null);
   const sectionHideIconRef = useRef(null);
   const sectionMapRef = useRef(null);
@@ -65,6 +66,7 @@ const SearchResultPage = () => {
       if (mobileParam) {
         sectionMapRef.current.classList.toggle("hidden");
         footerRef.current.classList.toggle("hidden");
+        mobileMapBtnRef.current.classList.toggle("hidden");
       }
     }, 100);
   };
@@ -128,6 +130,7 @@ const SearchResultPage = () => {
       ) : (
         <main className="flex mb-10">
           <button
+            ref={mobileMapBtnRef}
             className="mobile-show-map md:hidden fixed top-[91%] left-1/2 translate-[-50%, -50%] w-24 -ml-12 font-bold text-white bg-gray-800 py-2 rounded-full opacity-80 hover:opacity-100 hover:scale-95 transition-all z-20"
             onClick={() => fullMapWidth(true)}
           >
@@ -180,7 +183,7 @@ const SearchResultPage = () => {
 
           <section
             ref={sectionMapRef}
-            className="hidden md:inline-flex relative w-full md:w-1/4 min-w-[400px] xl:min-w-[600px] h-full mt-20 bg-gray-200"
+            className="hidden md:inline-flex relative w-full h-full md:w-1/4 min-w-[400px] xl:min-w-[600px] mt-20 bg-gray-200"
           >
             <div className="w-full h-[calc(100vh-80px)] fixed">
               <button

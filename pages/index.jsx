@@ -56,8 +56,8 @@ const HomePage = ({ exploreData, liveAnywhereData }) => (
           slidesToShow="auto"
           slidesToScroll={1}
           itemWidth={240}
-          scrollLockDelay={600}
-          duration={1}
+          scrollLockDelay={50}
+          duration={4}
           draggable
           scrollLock
           hasDots
