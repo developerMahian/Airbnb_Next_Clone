@@ -9,14 +9,13 @@ specifiers:
   eslint: 8.13.0
   eslint-config-next: 12.1.5
   geolib: ^3.3.3
-  glider-js: ^1.7.7
+  keen-slider: ^6.6.13
   mapbox-gl: ^2.8.2
   next: 12.1.5
   postcss: ^8.4.13
   react: ^17.0.2
   react-date-range: ^1.4.0
   react-dom: ^17.0.2
-  react-glider: ^3.1.0
   react-icons: ^4.3.1
   react-image-gallery: ^1.2.8
   react-map-gl: ^7.0.11
@@ -31,13 +30,12 @@ dependencies:
   axios: 0.26.1
   date-fns: 2.28.0
   geolib: 3.3.3
-  glider-js: 1.7.7
+  keen-slider: 6.6.13
   mapbox-gl: 2.8.2
   next: 12.1.5_sfoxds7t5ydpegc3knd667wn6m
   react: 17.0.2
   react-date-range: 1.4.0_2hazvn3wkvbvuxsyj5ejib6eci
   react-dom: 17.0.2_react@17.0.2
-  react-glider: 3.1.0_sfoxds7t5ydpegc3knd667wn6m
   react-icons: 4.3.1_react@17.0.2
   react-image-gallery: 1.2.8_react@17.0.2
   react-map-gl: 7.0.11_nziqc4bpo6ecs43sxc4vb75rri
@@ -295,30 +293,6 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: true
-
-  /@reach/auto-id/0.16.0_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-5ssbeP5bCkM39uVsfQCwBBL+KT8YColdnMN5/Eto6Rj7929ql95R3HZUOkKIvj7mgPtEb60BLQxd1P3o6cjbmg==}
-    peerDependencies:
-      react: ^16.8.0 || 17.x
-      react-dom: ^16.8.0 || 17.x
-    dependencies:
-      '@reach/utils': 0.16.0_sfoxds7t5ydpegc3knd667wn6m
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      tslib: 2.4.0
-    dev: false
-
-  /@reach/utils/0.16.0_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-PCggBet3qaQmwFNcmQ/GqHSefadAFyNCUekq9RrWoaU9hh/S4iaFgf2MBMdM47eQj5i/Bk0Mm07cP/XPFlkN+Q==}
-    peerDependencies:
-      react: ^16.8.0 || 17.x
-      react-dom: ^16.8.0 || 17.x
-    dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      tiny-warning: 1.0.3
-      tslib: 2.4.0
-    dev: false
 
   /@rushstack/eslint-patch/1.0.8:
     resolution: {integrity: sha512-ZK5v4bJwgXldAUA8r3q9YKfCwOqoHTK/ZqRjSeRXQrBXWouoPnS4MQtgC4AXGiiBuUu5wxrRgTlv0ktmM4P1Aw==}
@@ -1376,10 +1350,6 @@ packages:
     resolution: {integrity: sha512-wcCp8vu8FT22BnvKVPjXa/ICBWRq/zjFfdofZy1WSpQZpphblv12/bOQLBC1rMM7SGOFS9ltVmKOHil5+Ml7gA==}
     dev: false
 
-  /glider-js/1.7.7:
-    resolution: {integrity: sha512-jowNSpd/38EG0Kw83NgTo4F9YSAcpWQxBw0SFZcc2FysZD+dUuW/AcSeFU27rwGJilqdocKbw12IHOKi+DtpZw==}
-    dev: false
-
   /glob-parent/5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -1678,6 +1648,10 @@ packages:
 
   /kdbush/3.0.0:
     resolution: {integrity: sha512-hRkd6/XW4HTsA9vjVpY9tuXJYLSlelnkTmVFu4M9/7MIYQtFcHpbugAU7UbOfjOiVSVYl2fqgBuJ32JUmRo5Ew==}
+    dev: false
+
+  /keen-slider/6.6.13:
+    resolution: {integrity: sha512-kTPIhazE/6EhG7Z0d5OzweF1x7oRGS4HIoX0PdZB1kgYXuROW8vJPb0//BHIffZtQ1SzGqSWtxsWe3TgN9RtIA==}
     dev: false
 
   /language-subtag-registry/0.3.21:
@@ -2212,18 +2186,6 @@ packages:
       scheduler: 0.20.2
     dev: false
 
-  /react-glider/3.1.0_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-QLwFp6MwIXFQsCv2dQdKnrIyXmyJFBgx9ze3xoVO7DLea0XmzX/qSl+Ii8rCN+eamt3y/+OV+AB/jDc2Bdx8GQ==}
-    peerDependencies:
-      react: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0
-      react-dom: ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0
-    dependencies:
-      '@reach/auto-id': 0.16.0_sfoxds7t5ydpegc3knd667wn6m
-      glider-js: 1.7.7
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    dev: false
-
   /react-icons/4.3.1_react@17.0.2:
     resolution: {integrity: sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==}
     peerDependencies:
@@ -2642,10 +2604,6 @@ packages:
     resolution: {integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=}
     dev: true
 
-  /tiny-warning/1.0.3:
-    resolution: {integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==}
-    dev: false
-
   /tinyqueue/2.0.3:
     resolution: {integrity: sha512-ppJZNDuKGgxzkHihX8v9v9G5f+18gzaTfrukGrq6ueg0lmH4nqVnA2IPG0AEH3jKEk2GRJCUhDoqpoiw3PHLBA==}
     dev: false
@@ -2669,10 +2627,6 @@ packages:
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
-
-  /tslib/2.4.0:
-    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
-    dev: false
 
   /tsutils/3.21.0_typescript@4.6.4:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}

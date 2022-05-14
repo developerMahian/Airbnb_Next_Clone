@@ -252,7 +252,14 @@ export const staticPropertyDetail = {
     },
   ],
   panoramas: [],
-  amenities: [],
+  amenities: [
+    "base ball",
+    "parking",
+    "football",
+    "machine gun",
+    "m1887 shotgun",
+    "ak47",
+  ],
   phoneNumber: {
     mobile: "+971585085120",
     phone: "+97158508512",

@@ -6,7 +6,6 @@ import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import {
-  GlobeAltIcon,
   MenuIcon,
   SearchIcon,
   UserCircleIcon,
@@ -214,10 +213,9 @@ const Header = ({ searchPlaceholder }) => {
           </div>
 
           <div className="header__navigation gap-1 hidden md:flex items-center">
-            <TransBtn>Become a Host</TransBtn>
-            <TransBtn samePadding>
-              <GlobeAltIcon className="w-5" />
-            </TransBtn>
+            <div className="font-semibold hover:bg-gray-100 transition-colors duration-200 rounded-full cursor-pointer py-2 px-4">
+              Become a Host
+            </div>
             <div className="dropdown-menu relative" ref={navDropdownRef}>
               <div
                 className="dropdown-btn flex gap-1 border shadow-sm hover:shadow-md transition-shadow rounded-full cursor-pointer p-0.5 ml-1"
@@ -300,16 +298,6 @@ const Header = ({ searchPlaceholder }) => {
 
 const DropdownItem = ({ children }) => (
   <div className="px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer">
-    {children}
-  </div>
-);
-
-const TransBtn = ({ children, samePadding }) => (
-  <div
-    className={`font-semibold hover:bg-gray-100 transition-colors duration-200 rounded-full cursor-pointer ${
-      samePadding ? "p-2" : "py-2 px-4"
-    }`}
-  >
     {children}
   </div>
 );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
-import { HeartIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
+import { HeartIcon } from "@heroicons/react/outline";
 
 const PlaceCard = ({
   externalID,
@@ -17,12 +17,7 @@ const PlaceCard = ({
 
   const router = useRouter();
 
-  const formattedPrice = () => {
-    const priceInGrands = (price / 1000).toString();
-    const priceDotIndex = priceInGrands.indexOf(".");
-
-    return priceInGrands.substring(0, priceDotIndex + 3);
-  };
+  const formattedPrice = () => (price / 1000).toFixed(1).split(".0")[0];
 
   return (
     <div

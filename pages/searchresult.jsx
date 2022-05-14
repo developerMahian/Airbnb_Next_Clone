@@ -140,7 +140,7 @@ const SearchResultPage = () => {
 
           <section
             ref={leftSectionRef}
-            className="origin-left w-full h-full md:w-3/4 duration-500 overflow-hidden mt-28 px-3 flex flex-col"
+            className="origin-left w-full h-full md:w-3/4 duration-500 overflow-hidden mt-28 sm:px-3 flex flex-col"
             style={{ transitionProperty: "width" }}
           >
             <div className="top-content pl-2">

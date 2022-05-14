@@ -5,20 +5,8 @@ import HomeBanner from "../components/HomeBanner";
 import MiddleCard from "../components/MiddleCard";
 import BottomCard from "../components/BottomCard";
 import Footer from "../components/Footer";
-import Glider from "react-glider";
-import "glider-js/glider.min.css";
+import Slider from "../components/shared/Slider/Slider";
 // import { fetchApi } from "../utils/fetchApi";
-
-export async function getStaticProps() {
-  const exploreData = await fetch("https://links.papareact.com/pyp").then(
-    (res) => res.json()
-  );
-  const liveAnywhereData = await fetch("https://links.papareact.com/zp1").then(
-    (res) => res.json()
-  );
-
-  return { props: { exploreData, liveAnywhereData } };
-}
 
 const HomePage = ({ exploreData, liveAnywhereData }) => (
   <>
@@ -52,20 +40,11 @@ const HomePage = ({ exploreData, liveAnywhereData }) => (
       <section className="middle-slider mb-16">
         <h1 className="text-3xl font-extrabold py-2 mb-3">Live Anywhere</h1>
 
-        <Glider
-          slidesToShow="auto"
-          slidesToScroll={1}
-          itemWidth={240}
-          scrollLockDelay={50}
-          duration={4}
-          draggable
-          scrollLock
-          hasDots
-        >
+        <Slider>
           {liveAnywhereData?.map(({ img, title }, index) => (
             <MiddleCard key={index} img={img} title={title} />
           ))}
-        </Glider>
+        </Slider>
       </section>
 
       <section className="bottom-card mb-8">
@@ -78,3 +57,14 @@ const HomePage = ({ exploreData, liveAnywhereData }) => (
 );
 
 export default HomePage;
+
+export async function getStaticProps() {
+  const exploreData = await fetch("https://links.papareact.com/pyp").then(
+    (res) => res.json()
+  );
+  const liveAnywhereData = await fetch("https://links.papareact.com/zp1").then(
+    (res) => res.json()
+  );
+
+  return { props: { exploreData, liveAnywhereData } };
+}

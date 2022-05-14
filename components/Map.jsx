@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import Map, {
   FullscreenControl,
   GeolocateControl,
@@ -8,7 +9,7 @@ import Map, {
   ScaleControl,
 } from "react-map-gl";
 import getCenter from "geolib/es/getCenter";
-import Image from "next/image";
+import { LocationMarkerIcon } from "@heroicons/react/solid";
 
 const MapComponent = ({ placesData }) => {
   const [selectedMarker, setSelectedMarker] = useState({});
@@ -31,7 +32,7 @@ const MapComponent = ({ placesData }) => {
               className="cursor-pointer animate-bounce"
               aria-label="push-pin"
             >
-              📌
+              <LocationMarkerIcon className="w-6 text-red-600" />
             </p>
           </Marker>
 
@@ -81,9 +82,9 @@ const MapComponent = ({ placesData }) => {
       onMove={(e) => setMapView(e.viewState)}
       mapboxAccessToken={process.env.MAPBOX_TOKEN}
       mapStyle={"mapbox://styles/mapbox/satellite-v9"}
+      minZoom={7}
     >
       <GeolocateControl className="mt-10 opacity-0" position="top-left" />
-      <FullscreenControl position="top-left" />
       <NavigationControl position="top-left" />
       <ScaleControl />
 

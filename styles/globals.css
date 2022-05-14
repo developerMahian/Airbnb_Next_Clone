@@ -19,7 +19,7 @@
 
 body {
   font-family: "Manrope", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   color: #222;
   overflow-x: hidden;
 }
@@ -75,8 +75,14 @@ a.mapboxgl-ctrl-logo,
 }
 
 .image-gallery-content.fullscreen .image-gallery-slide .image-gallery-image {
-  max-height: 100vh;
+  max-height: calc(100vh - 80px);
   object-fit: contain;
+}
+
+@media (max-width: 765px) {
+  .image-gallery-content.fullscreen {
+    margin-top: 12vh;
+  }
 }
 
 .image-gallery-left-nav,
