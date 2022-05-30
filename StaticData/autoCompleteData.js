@@ -45,10 +45,10 @@ export const autoCompleteStaticData = {
       objectID: "2",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i",
+          value: "<em>Dubai</em>",
           matchLevel: "full",
-          fullyHighlighted: false,
-          matchedWords: ["duba"],
+          fullyHighlighted: true,
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "5002",
@@ -75,10 +75,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -138,10 +138,10 @@ export const autoCompleteStaticData = {
       objectID: "10",
       _highlightResult: {
         name: {
-          value: "Downtown <em>Duba</em>i",
+          value: "Downtown <em>Dubai</em>",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "6901",
@@ -168,10 +168,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -181,25 +181,25 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/downtown-<em>duba</em>i",
+              value: "/<em>dubai</em>/downtown-<em>dubai</em>",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "<em>Duba</em>i Downtown",
+            value: "<em>Dubai</em> Downtown",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
           {
-            value: "Down Town <em>Duba</em>i",
+            value: "Down Town <em>Dubai</em>",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
           {
             value: "Downtown",
@@ -263,10 +263,10 @@ export const autoCompleteStaticData = {
       objectID: "36",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Marina",
+          value: "<em>Dubai</em> Marina",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "5003",
@@ -293,10 +293,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -306,31 +306,31 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-marina",
+              value: "/<em>dubai</em>/<em>dubai</em>-marina",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "Marina <em>Duba</em>i",
+            value: "Marina <em>Dubai</em>",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
           {
-            value: "Marsa <em>Duba</em>i",
+            value: "Marsa <em>Dubai</em>",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
           {
-            value: "<em>Duba</em>i Marsa",
+            value: "<em>Dubai</em> Marsa",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
         ],
       },
@@ -389,10 +389,10 @@ export const autoCompleteStaticData = {
       objectID: "53",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Hills Estate",
+          value: "<em>Dubai</em> Hills Estate",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "8288",
@@ -419,10 +419,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -432,19 +432,19 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-hills-estate",
+              value: "/<em>dubai</em>/<em>dubai</em>-hills-estate",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "<em>Duba</em>i Hills",
+            value: "<em>Dubai</em> Hills",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
         ],
       },
@@ -503,10 +503,10 @@ export const autoCompleteStaticData = {
       objectID: "51",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>iland",
+          value: "<em>Dubai</em>land",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "5746",
@@ -533,10 +533,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -546,19 +546,19 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>iland",
+              value: "/<em>dubai</em>/<em>dubai</em>land",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "<em>Duba</em>i Land",
+            value: "<em>Dubai</em> Land",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
         ],
       },
@@ -626,10 +626,10 @@ export const autoCompleteStaticData = {
       objectID: "242",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Creek Harbour",
+          value: "<em>Dubai</em> Creek Harbour",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "8617",
@@ -656,10 +656,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -669,10 +669,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/the-lagoons",
+              value: "/<em>dubai</em>/the-lagoons",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -682,10 +682,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/the-lagoons/<em>duba</em>i-creek-harbour",
+              value: "/<em>dubai</em>/the-lagoons/<em>dubai</em>-creek-harbour",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -745,10 +745,10 @@ export const autoCompleteStaticData = {
       objectID: "345",
       _highlightResult: {
         name: {
-          value: "Bur <em>Duba</em>i",
+          value: "Bur <em>Dubai</em>",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "6796",
@@ -775,10 +775,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -788,10 +788,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/bur-<em>duba</em>i",
+              value: "/<em>dubai</em>/bur-<em>dubai</em>",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -858,10 +858,10 @@ export const autoCompleteStaticData = {
       objectID: "67",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Sports City",
+          value: "<em>Dubai</em> Sports City",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "5274",
@@ -888,10 +888,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -901,19 +901,19 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-sports-city",
+              value: "/<em>dubai</em>/<em>dubai</em>-sports-city",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "Sports City <em>Duba</em>i",
+            value: "Sports City <em>Dubai</em>",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
           {
             value: "Sports City",
@@ -987,10 +987,10 @@ export const autoCompleteStaticData = {
       objectID: "3512",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Harbour",
+          value: "<em>Dubai</em> Harbour",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "11876",
@@ -1017,10 +1017,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -1030,137 +1030,19 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-harbour",
+              value: "/<em>dubai</em>/<em>dubai</em>-harbour",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "<em>Duba</em>i Harbour Emaar",
+            value: "<em>Dubai</em> Harbour Emaar",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
-          },
-        ],
-      },
-    },
-    {
-      id: 295,
-      name: "Dubai Silicon Oasis",
-      name_l1: "واحة دبي للسيليكون",
-      externalID: "5361",
-      slug: "/dubai/dubai-silicon-oasis",
-      slug_l1: "/dubai/dubai-silicon-oasis",
-      _geoloc: {
-        lat: 25.121001948708,
-        lng: 55.379784107208,
-      },
-      geography: {
-        lat: 25.121001948708,
-        lng: 55.379784107208,
-      },
-      level: 2,
-      hierarchy: [
-        {
-          id: 1,
-          level: 0,
-          externalID: "5001",
-          name: "UAE",
-          name_l1: "الإمارات",
-          slug: "/uae",
-          slug_l1: "/uae",
-        },
-        {
-          id: 2,
-          level: 1,
-          externalID: "5002",
-          name: "Dubai",
-          name_l1: "دبي",
-          slug: "/dubai",
-          slug_l1: "/dubai",
-        },
-        {
-          id: 295,
-          level: 2,
-          externalID: "5361",
-          name: "Dubai Silicon Oasis",
-          name_l1: "واحة دبي للسيليكون",
-          slug: "/dubai/dubai-silicon-oasis",
-          slug_l1: "/dubai/dubai-silicon-oasis",
-        },
-      ],
-      adCount: 1730,
-      aliases: ["DSO", "Silicon Oasis"],
-      type: null,
-      hasBuilding: false,
-      trackID: "5361",
-      roles: null,
-      objectID: "295",
-      _highlightResult: {
-        name: {
-          value: "<em>Duba</em>i Silicon Oasis",
-          matchLevel: "full",
-          fullyHighlighted: false,
-          matchedWords: ["duba"],
-        },
-        externalID: {
-          value: "5361",
-          matchLevel: "none",
-          matchedWords: [],
-        },
-        hierarchy: [
-          {
-            externalID: {
-              value: "5001",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/uae",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-          },
-          {
-            externalID: {
-              value: "5002",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/<em>duba</em>i",
-              matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
-            },
-          },
-          {
-            externalID: {
-              value: "5361",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-silicon-oasis",
-              matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
-            },
-          },
-        ],
-        aliases: [
-          {
-            value: "DSO",
-            matchLevel: "none",
-            matchedWords: [],
-          },
-          {
-            value: "Silicon Oasis",
-            matchLevel: "none",
-            matchedWords: [],
+            matchedWords: ["dubai"],
           },
         ],
       },
@@ -1219,10 +1101,10 @@ export const autoCompleteStaticData = {
       objectID: "3355",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i South",
+          value: "<em>Dubai</em> South",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "8881",
@@ -1249,10 +1131,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -1262,10 +1144,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-south",
+              value: "/<em>dubai</em>/<em>dubai</em>-south",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -1316,7 +1198,7 @@ export const autoCompleteStaticData = {
           slug_l1: "/dubai/al-nahda-dubai",
         },
       ],
-      adCount: 1407,
+      adCount: 1587,
       aliases: ["Nahda", "Al Nadha"],
       type: null,
       hasBuilding: false,
@@ -1325,10 +1207,10 @@ export const autoCompleteStaticData = {
       objectID: "71",
       _highlightResult: {
         name: {
-          value: "Al Nahda (<em>Duba</em>i)",
+          value: "Al Nahda (<em>Dubai</em>)",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "5599",
@@ -1355,10 +1237,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -1368,10 +1250,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/al-nahda-<em>duba</em>i",
+              value: "/<em>dubai</em>/al-nahda-<em>dubai</em>",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -1383,6 +1265,124 @@ export const autoCompleteStaticData = {
           },
           {
             value: "Al Nadha",
+            matchLevel: "none",
+            matchedWords: [],
+          },
+        ],
+      },
+    },
+    {
+      id: 295,
+      name: "Dubai Silicon Oasis",
+      name_l1: "واحة دبي للسيليكون",
+      externalID: "5361",
+      slug: "/dubai/dubai-silicon-oasis",
+      slug_l1: "/dubai/dubai-silicon-oasis",
+      _geoloc: {
+        lat: 25.121001948708,
+        lng: 55.379784107208,
+      },
+      geography: {
+        lat: 25.121001948708,
+        lng: 55.379784107208,
+      },
+      level: 2,
+      hierarchy: [
+        {
+          id: 1,
+          level: 0,
+          externalID: "5001",
+          name: "UAE",
+          name_l1: "الإمارات",
+          slug: "/uae",
+          slug_l1: "/uae",
+        },
+        {
+          id: 2,
+          level: 1,
+          externalID: "5002",
+          name: "Dubai",
+          name_l1: "دبي",
+          slug: "/dubai",
+          slug_l1: "/dubai",
+        },
+        {
+          id: 295,
+          level: 2,
+          externalID: "5361",
+          name: "Dubai Silicon Oasis",
+          name_l1: "واحة دبي للسيليكون",
+          slug: "/dubai/dubai-silicon-oasis",
+          slug_l1: "/dubai/dubai-silicon-oasis",
+        },
+      ],
+      adCount: 1564,
+      aliases: ["DSO", "Silicon Oasis"],
+      type: null,
+      hasBuilding: false,
+      trackID: "5361",
+      roles: null,
+      objectID: "295",
+      _highlightResult: {
+        name: {
+          value: "<em>Dubai</em> Silicon Oasis",
+          matchLevel: "full",
+          fullyHighlighted: false,
+          matchedWords: ["dubai"],
+        },
+        externalID: {
+          value: "5361",
+          matchLevel: "none",
+          matchedWords: [],
+        },
+        hierarchy: [
+          {
+            externalID: {
+              value: "5001",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/uae",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+          },
+          {
+            externalID: {
+              value: "5002",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/<em>dubai</em>",
+              matchLevel: "full",
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
+            },
+          },
+          {
+            externalID: {
+              value: "5361",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/<em>dubai</em>/<em>dubai</em>-silicon-oasis",
+              matchLevel: "full",
+              fullyHighlighted: false,
+              matchedWords: ["dubai"],
+            },
+          },
+        ],
+        aliases: [
+          {
+            value: "DSO",
+            matchLevel: "none",
+            matchedWords: [],
+          },
+          {
+            value: "Silicon Oasis",
             matchLevel: "none",
             matchedWords: [],
           },
@@ -1434,7 +1434,7 @@ export const autoCompleteStaticData = {
           slug_l1: "/dubai/dubai-investment-park-dip",
         },
       ],
-      adCount: 986,
+      adCount: 1097,
       aliases: ["DIP", "Dubai Investments Park"],
       type: null,
       hasBuilding: false,
@@ -1443,10 +1443,10 @@ export const autoCompleteStaticData = {
       objectID: "79",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Investment Park (DIP)",
+          value: "<em>Dubai</em> Investment Park (DIP)",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "5241",
@@ -1473,10 +1473,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -1486,10 +1486,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-investment-park-dip",
+              value: "/<em>dubai</em>/<em>dubai</em>-investment-park-dip",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -1500,139 +1500,10 @@ export const autoCompleteStaticData = {
             matchedWords: [],
           },
           {
-            value: "<em>Duba</em>i Investments Park",
+            value: "<em>Dubai</em> Investments Park",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
-          },
-        ],
-      },
-    },
-    {
-      id: 380,
-      name: "Maple at Dubai Hills Estate",
-      name_l1: "ميبل في دبي هيلز استيت",
-      externalID: "9188",
-      slug: "/dubai/dubai-hills-estate/maple-at-dubai-hills-estate",
-      slug_l1: "/dubai/dubai-hills-estate/maple-at-dubai-hills-estate",
-      _geoloc: {
-        lat: 25.093024,
-        lng: 55.254131,
-      },
-      geography: {
-        lat: 25.093024,
-        lng: 55.254131,
-      },
-      level: 3,
-      hierarchy: [
-        {
-          id: 1,
-          level: 0,
-          externalID: "5001",
-          name: "UAE",
-          name_l1: "الإمارات",
-          slug: "/uae",
-          slug_l1: "/uae",
-        },
-        {
-          id: 2,
-          level: 1,
-          externalID: "5002",
-          name: "Dubai",
-          name_l1: "دبي",
-          slug: "/dubai",
-          slug_l1: "/dubai",
-        },
-        {
-          id: 53,
-          level: 2,
-          externalID: "8288",
-          name: "Dubai Hills Estate",
-          name_l1: "دبي هيلز استيت",
-          slug: "/dubai/dubai-hills-estate",
-          slug_l1: "/dubai/dubai-hills-estate",
-        },
-        {
-          id: 380,
-          level: 3,
-          externalID: "9188",
-          name: "Maple at Dubai Hills Estate",
-          name_l1: "ميبل في دبي هيلز استيت",
-          slug: "/dubai/dubai-hills-estate/maple-at-dubai-hills-estate",
-          slug_l1: "/dubai/dubai-hills-estate/maple-at-dubai-hills-estate",
-        },
-      ],
-      adCount: 797,
-      aliases: [],
-      type: null,
-      hasBuilding: false,
-      trackID: "9188",
-      roles: null,
-      objectID: "380",
-      _highlightResult: {
-        name: {
-          value: "Maple at <em>Duba</em>i Hills Estate",
-          matchLevel: "full",
-          fullyHighlighted: false,
-          matchedWords: ["duba"],
-        },
-        externalID: {
-          value: "9188",
-          matchLevel: "none",
-          matchedWords: [],
-        },
-        hierarchy: [
-          {
-            externalID: {
-              value: "5001",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/uae",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-          },
-          {
-            externalID: {
-              value: "5002",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/<em>duba</em>i",
-              matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
-            },
-          },
-          {
-            externalID: {
-              value: "8288",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-hills-estate",
-              matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
-            },
-          },
-          {
-            externalID: {
-              value: "9188",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value:
-                "/<em>duba</em>i/<em>duba</em>i-hills-estate/maple-at-<em>duba</em>i-hills-estate",
-              matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
-            },
+            matchedWords: ["dubai"],
           },
         ],
       },
@@ -1682,7 +1553,7 @@ export const autoCompleteStaticData = {
           slug_l1: "/dubai/dubai-production-city-impz",
         },
       ],
-      adCount: 752,
+      adCount: 847,
       aliases: ["IMPZ", "International Media Production Zone", "DPC"],
       type: null,
       hasBuilding: false,
@@ -1691,10 +1562,10 @@ export const autoCompleteStaticData = {
       objectID: "5036",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Production City (IMPZ)",
+          value: "<em>Dubai</em> Production City (IMPZ)",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "5900",
@@ -1721,10 +1592,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -1734,10 +1605,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-production-city-impz",
+              value: "/<em>dubai</em>/<em>dubai</em>-production-city-impz",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -1805,7 +1676,7 @@ export const autoCompleteStaticData = {
           slug_l1: "/dubai/dubai-residence-complex",
         },
       ],
-      adCount: 734,
+      adCount: 818,
       aliases: ["Dubailand Residence Complex"],
       type: null,
       hasBuilding: false,
@@ -1814,10 +1685,10 @@ export const autoCompleteStaticData = {
       objectID: "603",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Residence Complex",
+          value: "<em>Dubai</em> Residence Complex",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "9038",
@@ -1844,10 +1715,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -1857,19 +1728,148 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-residence-complex",
+              value: "/<em>dubai</em>/<em>dubai</em>-residence-complex",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "<em>Duba</em>iland Residence Complex",
+            value: "<em>Dubai</em>land Residence Complex",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
+          },
+        ],
+      },
+    },
+    {
+      id: 380,
+      name: "Maple at Dubai Hills Estate",
+      name_l1: "ميبل في دبي هيلز استيت",
+      externalID: "9188",
+      slug: "/dubai/dubai-hills-estate/maple-at-dubai-hills-estate",
+      slug_l1: "/dubai/dubai-hills-estate/maple-at-dubai-hills-estate",
+      _geoloc: {
+        lat: 25.093024,
+        lng: 55.254131,
+      },
+      geography: {
+        lat: 25.093024,
+        lng: 55.254131,
+      },
+      level: 3,
+      hierarchy: [
+        {
+          id: 1,
+          level: 0,
+          externalID: "5001",
+          name: "UAE",
+          name_l1: "الإمارات",
+          slug: "/uae",
+          slug_l1: "/uae",
+        },
+        {
+          id: 2,
+          level: 1,
+          externalID: "5002",
+          name: "Dubai",
+          name_l1: "دبي",
+          slug: "/dubai",
+          slug_l1: "/dubai",
+        },
+        {
+          id: 53,
+          level: 2,
+          externalID: "8288",
+          name: "Dubai Hills Estate",
+          name_l1: "دبي هيلز استيت",
+          slug: "/dubai/dubai-hills-estate",
+          slug_l1: "/dubai/dubai-hills-estate",
+        },
+        {
+          id: 380,
+          level: 3,
+          externalID: "9188",
+          name: "Maple at Dubai Hills Estate",
+          name_l1: "ميبل في دبي هيلز استيت",
+          slug: "/dubai/dubai-hills-estate/maple-at-dubai-hills-estate",
+          slug_l1: "/dubai/dubai-hills-estate/maple-at-dubai-hills-estate",
+        },
+      ],
+      adCount: 797,
+      aliases: [],
+      type: null,
+      hasBuilding: false,
+      trackID: "9188",
+      roles: null,
+      objectID: "380",
+      _highlightResult: {
+        name: {
+          value: "Maple at <em>Dubai</em> Hills Estate",
+          matchLevel: "full",
+          fullyHighlighted: false,
+          matchedWords: ["dubai"],
+        },
+        externalID: {
+          value: "9188",
+          matchLevel: "none",
+          matchedWords: [],
+        },
+        hierarchy: [
+          {
+            externalID: {
+              value: "5001",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/uae",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+          },
+          {
+            externalID: {
+              value: "5002",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/<em>dubai</em>",
+              matchLevel: "full",
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
+            },
+          },
+          {
+            externalID: {
+              value: "8288",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/<em>dubai</em>/<em>dubai</em>-hills-estate",
+              matchLevel: "full",
+              fullyHighlighted: false,
+              matchedWords: ["dubai"],
+            },
+          },
+          {
+            externalID: {
+              value: "9188",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value:
+                "/<em>dubai</em>/<em>dubai</em>-hills-estate/maple-at-<em>dubai</em>-hills-estate",
+              matchLevel: "full",
+              fullyHighlighted: false,
+              matchedWords: ["dubai"],
+            },
           },
         ],
       },
@@ -1928,10 +1928,10 @@ export const autoCompleteStaticData = {
       objectID: "1621",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Internet City",
+          value: "<em>Dubai</em> Internet City",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "7934",
@@ -1958,10 +1958,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -1971,19 +1971,19 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-internet-city",
+              value: "/<em>dubai</em>/<em>dubai</em>-internet-city",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "Internet City <em>Duba</em>i",
+            value: "Internet City <em>Dubai</em>",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
           {
             value: "Internet City",
@@ -1992,130 +1992,6 @@ export const autoCompleteStaticData = {
           },
           {
             value: "DIC",
-            matchLevel: "none",
-            matchedWords: [],
-          },
-        ],
-      },
-    },
-    {
-      id: 95,
-      name: "Dubai Media City",
-      name_l1: "مدينة دبي للإعلام",
-      externalID: "7935",
-      slug: "/dubai/dubai-media-city",
-      slug_l1: "/dubai/dubai-media-city",
-      _geoloc: {
-        lat: 25.094951000901,
-        lng: 55.155371725559,
-      },
-      geography: {
-        lat: 25.094951000901,
-        lng: 55.155371725559,
-      },
-      level: 2,
-      hierarchy: [
-        {
-          id: 1,
-          level: 0,
-          externalID: "5001",
-          name: "UAE",
-          name_l1: "الإمارات",
-          slug: "/uae",
-          slug_l1: "/uae",
-        },
-        {
-          id: 2,
-          level: 1,
-          externalID: "5002",
-          name: "Dubai",
-          name_l1: "دبي",
-          slug: "/dubai",
-          slug_l1: "/dubai",
-        },
-        {
-          id: 95,
-          level: 2,
-          externalID: "7935",
-          name: "Dubai Media City",
-          name_l1: "مدينة دبي للإعلام",
-          slug: "/dubai/dubai-media-city",
-          slug_l1: "/dubai/dubai-media-city",
-        },
-      ],
-      adCount: 486,
-      aliases: ["Media City", "Media City Dubai", "DMC"],
-      type: null,
-      hasBuilding: false,
-      trackID: "7935",
-      roles: null,
-      objectID: "95",
-      _highlightResult: {
-        name: {
-          value: "<em>Duba</em>i Media City",
-          matchLevel: "full",
-          fullyHighlighted: false,
-          matchedWords: ["duba"],
-        },
-        externalID: {
-          value: "7935",
-          matchLevel: "none",
-          matchedWords: [],
-        },
-        hierarchy: [
-          {
-            externalID: {
-              value: "5001",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/uae",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-          },
-          {
-            externalID: {
-              value: "5002",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/<em>duba</em>i",
-              matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
-            },
-          },
-          {
-            externalID: {
-              value: "7935",
-              matchLevel: "none",
-              matchedWords: [],
-            },
-            slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-media-city",
-              matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
-            },
-          },
-        ],
-        aliases: [
-          {
-            value: "Media City",
-            matchLevel: "none",
-            matchedWords: [],
-          },
-          {
-            value: "Media City <em>Duba</em>i",
-            matchLevel: "full",
-            fullyHighlighted: false,
-            matchedWords: ["duba"],
-          },
-          {
-            value: "DMC",
             matchLevel: "none",
             matchedWords: [],
           },
@@ -2176,7 +2052,7 @@ export const autoCompleteStaticData = {
           slug_l1: "/dubai/downtown-dubai/the-address-dubai-mall",
         },
       ],
-      adCount: 470,
+      adCount: 475,
       aliases: [],
       type: null,
       hasBuilding: false,
@@ -2185,10 +2061,10 @@ export const autoCompleteStaticData = {
       objectID: "639",
       _highlightResult: {
         name: {
-          value: "The Address <em>Duba</em>i Mall",
+          value: "The Address <em>Dubai</em> Mall",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "6799",
@@ -2215,10 +2091,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2228,10 +2104,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/downtown-<em>duba</em>i",
+              value: "/<em>dubai</em>/downtown-<em>dubai</em>",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2242,11 +2118,135 @@ export const autoCompleteStaticData = {
             },
             slug: {
               value:
-                "/<em>duba</em>i/downtown-<em>duba</em>i/the-address-<em>duba</em>i-mall",
+                "/<em>dubai</em>/downtown-<em>dubai</em>/the-address-<em>dubai</em>-mall",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
+          },
+        ],
+      },
+    },
+    {
+      id: 95,
+      name: "Dubai Media City",
+      name_l1: "مدينة دبي للإعلام",
+      externalID: "7935",
+      slug: "/dubai/dubai-media-city",
+      slug_l1: "/dubai/dubai-media-city",
+      _geoloc: {
+        lat: 25.094951000901,
+        lng: 55.155371725559,
+      },
+      geography: {
+        lat: 25.094951000901,
+        lng: 55.155371725559,
+      },
+      level: 2,
+      hierarchy: [
+        {
+          id: 1,
+          level: 0,
+          externalID: "5001",
+          name: "UAE",
+          name_l1: "الإمارات",
+          slug: "/uae",
+          slug_l1: "/uae",
+        },
+        {
+          id: 2,
+          level: 1,
+          externalID: "5002",
+          name: "Dubai",
+          name_l1: "دبي",
+          slug: "/dubai",
+          slug_l1: "/dubai",
+        },
+        {
+          id: 95,
+          level: 2,
+          externalID: "7935",
+          name: "Dubai Media City",
+          name_l1: "مدينة دبي للإعلام",
+          slug: "/dubai/dubai-media-city",
+          slug_l1: "/dubai/dubai-media-city",
+        },
+      ],
+      adCount: 441,
+      aliases: ["Media City", "Media City Dubai", "DMC"],
+      type: null,
+      hasBuilding: false,
+      trackID: "7935",
+      roles: null,
+      objectID: "95",
+      _highlightResult: {
+        name: {
+          value: "<em>Dubai</em> Media City",
+          matchLevel: "full",
+          fullyHighlighted: false,
+          matchedWords: ["dubai"],
+        },
+        externalID: {
+          value: "7935",
+          matchLevel: "none",
+          matchedWords: [],
+        },
+        hierarchy: [
+          {
+            externalID: {
+              value: "5001",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/uae",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+          },
+          {
+            externalID: {
+              value: "5002",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/<em>dubai</em>",
+              matchLevel: "full",
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
+            },
+          },
+          {
+            externalID: {
+              value: "7935",
+              matchLevel: "none",
+              matchedWords: [],
+            },
+            slug: {
+              value: "/<em>dubai</em>/<em>dubai</em>-media-city",
+              matchLevel: "full",
+              fullyHighlighted: false,
+              matchedWords: ["dubai"],
+            },
+          },
+        ],
+        aliases: [
+          {
+            value: "Media City",
+            matchLevel: "none",
+            matchedWords: [],
+          },
+          {
+            value: "Media City <em>Dubai</em>",
+            matchLevel: "full",
+            fullyHighlighted: false,
+            matchedWords: ["dubai"],
+          },
+          {
+            value: "DMC",
+            matchLevel: "none",
+            matchedWords: [],
           },
         ],
       },
@@ -2314,10 +2314,10 @@ export const autoCompleteStaticData = {
       objectID: "16508",
       _highlightResult: {
         name: {
-          value: "SLS <em>Duba</em>i Hotel & Residences",
+          value: "SLS <em>Dubai</em> Hotel & Residences",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "12602",
@@ -2344,10 +2344,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2357,10 +2357,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/business-bay",
+              value: "/<em>dubai</em>/business-bay",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2371,10 +2371,10 @@ export const autoCompleteStaticData = {
             },
             slug: {
               value:
-                "/<em>duba</em>i/business-bay/sls-<em>duba</em>i-hotel-residences",
+                "/<em>dubai</em>/business-bay/sls-<em>dubai</em>-hotel-residences",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -2454,10 +2454,10 @@ export const autoCompleteStaticData = {
       objectID: "1162",
       _highlightResult: {
         name: {
-          value: "Maple At <em>Duba</em>i Hills Estate 1",
+          value: "Maple At <em>Dubai</em> Hills Estate 1",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "9190",
@@ -2484,10 +2484,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2497,10 +2497,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-hills-estate",
+              value: "/<em>dubai</em>/<em>dubai</em>-hills-estate",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2511,10 +2511,10 @@ export const autoCompleteStaticData = {
             },
             slug: {
               value:
-                "/<em>duba</em>i/<em>duba</em>i-hills-estate/maple-at-<em>duba</em>i-hills-estate",
+                "/<em>dubai</em>/<em>dubai</em>-hills-estate/maple-at-<em>dubai</em>-hills-estate",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2525,10 +2525,10 @@ export const autoCompleteStaticData = {
             },
             slug: {
               value:
-                "/<em>duba</em>i/<em>duba</em>i-hills-estate/maple-at-<em>duba</em>i-hills-estate/maple-at-<em>duba</em>i-hills-estate-1",
+                "/<em>dubai</em>/<em>dubai</em>-hills-estate/maple-at-<em>dubai</em>-hills-estate/maple-at-<em>dubai</em>-hills-estate-1",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -2597,10 +2597,10 @@ export const autoCompleteStaticData = {
       objectID: "1446",
       _highlightResult: {
         name: {
-          value: "The Address Residences <em>Duba</em>i Opera",
+          value: "The Address Residences <em>Dubai</em> Opera",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "8659",
@@ -2627,10 +2627,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2640,10 +2640,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/downtown-<em>duba</em>i",
+              value: "/<em>dubai</em>/downtown-<em>dubai</em>",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2654,10 +2654,10 @@ export const autoCompleteStaticData = {
             },
             slug: {
               value:
-                "/<em>duba</em>i/downtown-<em>duba</em>i/the-address-residences-<em>duba</em>i-opera",
+                "/<em>dubai</em>/downtown-<em>dubai</em>/the-address-residences-<em>dubai</em>-opera",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -2737,10 +2737,10 @@ export const autoCompleteStaticData = {
       objectID: "381",
       _highlightResult: {
         name: {
-          value: "Maple At <em>Duba</em>i Hills Estate 2",
+          value: "Maple At <em>Dubai</em> Hills Estate 2",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "9191",
@@ -2767,10 +2767,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2780,10 +2780,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-hills-estate",
+              value: "/<em>dubai</em>/<em>dubai</em>-hills-estate",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2794,10 +2794,10 @@ export const autoCompleteStaticData = {
             },
             slug: {
               value:
-                "/<em>duba</em>i/<em>duba</em>i-hills-estate/maple-at-<em>duba</em>i-hills-estate",
+                "/<em>dubai</em>/<em>dubai</em>-hills-estate/maple-at-<em>dubai</em>-hills-estate",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2808,10 +2808,10 @@ export const autoCompleteStaticData = {
             },
             slug: {
               value:
-                "/<em>duba</em>i/<em>duba</em>i-hills-estate/maple-at-<em>duba</em>i-hills-estate/maple-at-<em>duba</em>i-hills-estate-2",
+                "/<em>dubai</em>/<em>dubai</em>-hills-estate/maple-at-<em>dubai</em>-hills-estate/maple-at-<em>dubai</em>-hills-estate-2",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
@@ -2877,10 +2877,10 @@ export const autoCompleteStaticData = {
       objectID: "5099",
       _highlightResult: {
         name: {
-          value: "<em>Duba</em>i Industrial Park",
+          value: "<em>Dubai</em> Industrial Park",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "5666",
@@ -2907,10 +2907,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -2920,19 +2920,19 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-industrial-park",
+              value: "/<em>dubai</em>/<em>dubai</em>-industrial-park",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
         aliases: [
           {
-            value: "<em>Duba</em>i Industrial City",
+            value: "<em>Dubai</em> Industrial City",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
           {
             value: "Industrial Park",
@@ -2945,10 +2945,10 @@ export const autoCompleteStaticData = {
             matchedWords: [],
           },
           {
-            value: "DIC <em>Duba</em>i Industrial City",
+            value: "DIC <em>Dubai</em> Industrial City",
             matchLevel: "full",
             fullyHighlighted: false,
-            matchedWords: ["duba"],
+            matchedWords: ["dubai"],
           },
           {
             value: "DIC",
@@ -3021,10 +3021,10 @@ export const autoCompleteStaticData = {
       objectID: "17911",
       _highlightResult: {
         name: {
-          value: "Avani Palm View <em>Duba</em>i Hotel & Suites",
+          value: "Avani Palm View <em>Dubai</em> Hotel & Suites",
           matchLevel: "full",
           fullyHighlighted: false,
-          matchedWords: ["duba"],
+          matchedWords: ["dubai"],
         },
         externalID: {
           value: "13641",
@@ -3051,10 +3051,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i",
+              value: "/<em>dubai</em>",
               matchLevel: "full",
-              fullyHighlighted: false,
-              matchedWords: ["duba"],
+              fullyHighlighted: true,
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -3064,10 +3064,10 @@ export const autoCompleteStaticData = {
               matchedWords: [],
             },
             slug: {
-              value: "/<em>duba</em>i/<em>duba</em>i-media-city",
+              value: "/<em>dubai</em>/<em>dubai</em>-media-city",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
           {
@@ -3078,23 +3078,23 @@ export const autoCompleteStaticData = {
             },
             slug: {
               value:
-                "/<em>duba</em>i/<em>duba</em>i-media-city/avani-palm-view-<em>duba</em>i-hotel-suites",
+                "/<em>dubai</em>/<em>dubai</em>-media-city/avani-palm-view-<em>dubai</em>-hotel-suites",
               matchLevel: "full",
               fullyHighlighted: false,
-              matchedWords: ["duba"],
+              matchedWords: ["dubai"],
             },
           },
         ],
       },
     },
   ],
-  nbHits: 6335,
+  nbHits: 6375,
   page: 0,
   nbPages: 200,
   hitsPerPage: 25,
   exhaustiveNbHits: true,
   exhaustiveTypo: true,
-  query: "duba",
-  params: "filters=level > 0&hitsPerPage=25&page=0&query=duba",
-  processingTimeMS: 6,
+  query: "dubai",
+  params: "filters=level > 0&hitsPerPage=25&page=0&query=dubai",
+  processingTimeMS: 5,
 };

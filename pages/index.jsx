@@ -1,12 +1,11 @@
 import Head from "next/head";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import TopCard from "../components/TopCard";
 import HomeBanner from "../components/HomeBanner";
 import MiddleCard from "../components/MiddleCard";
 import BottomCard from "../components/BottomCard";
 import Footer from "../components/Footer";
-import Slider from "../components/shared/Slider/Slider";
-// import { fetchApi } from "../utils/fetchApi";
+import Slider from "../components/Slider";
 
 const HomePage = ({ exploreData, liveAnywhereData }) => (
   <>

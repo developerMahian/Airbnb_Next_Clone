@@ -1,49 +1,42 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useRef, useEffect } from "react";
+
 import { addDays } from "date-fns";
+import { useQuery } from "react-query";
 import { DateRangePicker } from "react-date-range";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
-import {
-  MenuIcon,
-  SearchIcon,
-  UserCircleIcon,
-  UsersIcon,
-} from "@heroicons/react/solid";
+
+import { fetchApi } from "../../utils/fetchApi";
+import useDebounce from "../../utils/useDebounce";
+
+import RightMenu from "./component/RightMenu";
+
+import FullLogo from "../SvgAssets/FullLogo";
+import HalfLogo from "../SvgAssets/HalfLogo";
 import { LocationMarkerIcon } from "@heroicons/react/outline";
-import FullLogo from "./SvgAssets/FullLogo";
-import HalfLogo from "./SvgAssets/HalfLogo";
-// import { fetchApi } from "../../utils/fetchApi";
-import { autoCompleteStaticData } from "../StaticData/autoCompleteData";
+import { SearchIcon, UsersIcon } from "@heroicons/react/solid";
+
+import "react-date-range/dist/styles.css"; // date-range main style
+import "react-date-range/dist/theme/default.css"; // date-range theme
+
+// import { autoCompleteStaticData } from "../../StaticData/autoCompleteData";
 
 const Header = ({ searchPlaceholder }) => {
-  const router = useRouter();
   const [searchInput, setSearchInput] = useState("");
+  const debouncedSearchInput = useDebounce(searchInput);
+
   const [guestCount, setGuestCount] = useState(1);
   const [inputFocus, setInputFocus] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [suggestionOpen, setSuggestionOpen] = useState(true);
   const [selectedSuggestion, setSelectedSuggestion] = useState({});
-  const [searchFilteredData, setSearchFilteredData] = useState([]);
-  const [autoCompleteFetchedData, setAutoCompleteFetchedData] = useState(
-    autoCompleteStaticData.hits
-  );
-  // console.log({ searchInput, searchFilteredData, autoCompleteFetchedData });
 
   const headerRef = useRef(null);
   const searchInputRef = useRef(null);
   const navDropdownRef = useRef(null);
   const suggestionDropdownRef = useRef(null);
 
-  let suggestionData = [];
-
-  if (autoCompleteFetchedData) {
-    suggestionData = autoCompleteFetchedData?.map((suggestion) => ({
-      locationExternalIDs: suggestion.externalID,
-      name: suggestion.name,
-    }));
-  }
+  const router = useRouter();
 
   const calenderRanges = {
     startDate: new Date(),
@@ -69,13 +62,15 @@ const Header = ({ searchPlaceholder }) => {
    *****/
   useEffect(() => {
     const handleCalenderClick = (e) => {
-      !headerRef.current?.contains(e.target) && setInputFocus(false);
-      !navDropdownRef.current?.contains(e.target) && setDropdownOpen(false);
+      if (!headerRef.current?.contains(e.target)) setInputFocus(false);
+      if (!navDropdownRef.current?.contains(e.target)) setDropdownOpen(false);
 
-      !suggestionDropdownRef.current?.contains(e.target) &&
-      !searchInputRef.current?.contains(e.target)
-        ? setSuggestionOpen(false)
-        : null;
+      if (
+        !suggestionDropdownRef.current?.contains(e.target) &&
+        !searchInputRef.current?.contains(e.target)
+      ) {
+        setSuggestionOpen(false);
+      }
     };
 
     window.addEventListener("mousedown", handleCalenderClick);
@@ -85,39 +80,34 @@ const Header = ({ searchPlaceholder }) => {
   /*****
    ** Bayut API autocomplete fetching...
    *****/
-  useEffect(() => {
-    // searchInput &&
-    //   fetchApi(`auto-complete?query=${searchInput}`, true).then((data) =>
-    //     setAutoCompleteFetchedData(data?.hits)
-    //   );
-  }, [searchInput]);
+  const { data, isLoading } = useQuery(
+    ["headerSearch", debouncedSearchInput],
+    () =>
+      fetchApi(`/auto-complete?query=${debouncedSearchInput}&hitsPerPage=6`),
+    {
+      enabled: debouncedSearchInput.length > 0,
+      staleTime: Infinity,
+    }
+  );
+  console.log({ data });
 
-  /*****
-   ** Filtering suggetions on search typing...
-   *****/
-  useEffect(() => {
-    const filteredOptions = suggestionData.filter((item) =>
-      item?.name.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
-    );
+  let suggestionData = [];
 
-    setSearchFilteredData(filteredOptions);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchInput]); // Shouldn't include suggestionItems
+  if (searchInput && !isLoading) {
+    suggestionData = data?.hits?.map((suggestion) => ({
+      locationExternalIDs: suggestion.externalID,
+      name: suggestion.name,
+    }));
+  }
 
   /*****
    ** Handler for search form submission OR search suggestion choice...
    *****/
   const searchSubmitHandler = () => {
-    let yesterdayDate = new Date();
-    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-    console.log("submit");
-
-    if (dateRangeState[0].startDate <= yesterdayDate) {
-      alert("You can't choose dates from the Past.");
-    } else if (!selectedSuggestion.locationExternalIDs) {
-      alert("(Only UAE locations): Please select from Search Suggestions.");
+    if (!selectedSuggestion.locationExternalIDs) {
+      alert("Select from Search Suggestions please.");
     } else if (searchInput !== selectedSuggestion.name) {
-      alert("(Only UAE locations): Please make sure you've typed correctly.");
+      alert("Make sure you've typed exactly like suggested.");
     } else {
       router.push({
         pathname: "/searchresult",
@@ -170,7 +160,7 @@ const Header = ({ searchPlaceholder }) => {
                 placeholder={searchPlaceholder || "Where to go in UAE?"}
                 autoComplete="off"
                 value={searchInput}
-                onChange={({ target: { value } }) => setSearchInput(value)}
+                onChange={(event) => setSearchInput(event.target.value)}
                 onClick={() => setInputFocus(true)}
                 onFocus={() => setSuggestionOpen(true)}
                 onKeyUp={(e) => {
@@ -178,33 +168,30 @@ const Header = ({ searchPlaceholder }) => {
                 }}
               />
               <div
-                className={`suggestions-wrapper ${
-                  suggestionOpen && searchInput && searchFilteredData.length > 0
+                className={`${
+                  suggestionData?.length > 0 && suggestionOpen
                     ? null
                     : "opacity-0 invisible"
-                } absolute top-full min-w-[250px] max-h-[450px] bg-white z-20 whitespace-nowrap font-medium rounded-3xl transition-all duration-300 overflow-auto scrollbar-hide p-5`}
+                } absolute top-full min-w-[250px] maxh-[450px] bg-white z-20 whitespace-nowrap font-medium rounded-3xl transition-all duration-300 overflow-auto scrollbar-hide p-5`}
                 style={{ boxShadow: "0 5px 30px 6px rgb(0 0 0 / .125)" }}
                 ref={suggestionDropdownRef}
               >
-                {searchFilteredData?.map(
-                  (suggestion, index) =>
-                    index < 6 && (
-                      <div
-                        key={index}
-                        className="suggestion-item flex items-center gap-4 text-base hover:bg-gray-100 transition-colors duration-300 rounded-xl cursor-pointer whitespace-nowrap p-2 pr-4"
-                        onClick={() => {
-                          setSearchInput(suggestion.name);
-                          setSelectedSuggestion(suggestion);
-                          setSuggestionOpen(false);
-                        }}
-                      >
-                        <div className="p-3 bg-gray-200 rounded-xl">
-                          <LocationMarkerIcon width={16} />
-                        </div>
-                        {suggestion.name}
-                      </div>
-                    )
-                )}
+                {suggestionData?.map((suggestion, index) => (
+                  <div
+                    key={index}
+                    className="suggestion-item flex items-center gap-4 text-base hover:bg-gray-100 transition-colors duration-300 rounded-xl cursor-pointer whitespace-nowrap p-2 pr-4"
+                    onClick={() => {
+                      setSearchInput(suggestion.name);
+                      setSelectedSuggestion(suggestion);
+                      setSuggestionOpen(false);
+                    }}
+                  >
+                    <div className="p-3 bg-gray-200 rounded-xl">
+                      <LocationMarkerIcon width={16} />
+                    </div>
+                    {suggestion.name}
+                  </div>
+                ))}
               </div>
             </form>
             <button type="submit" form="headerSearchForm">
@@ -212,33 +199,11 @@ const Header = ({ searchPlaceholder }) => {
             </button>
           </div>
 
-          <div className="header__navigation gap-1 hidden md:flex items-center">
-            <div className="font-semibold hover:bg-gray-100 transition-colors duration-200 rounded-full cursor-pointer py-2 px-4">
-              Become a Host
-            </div>
-            <div className="dropdown-menu relative" ref={navDropdownRef}>
-              <div
-                className="dropdown-btn flex gap-1 border shadow-sm hover:shadow-md transition-shadow rounded-full cursor-pointer p-0.5 ml-1"
-                onClick={() => setDropdownOpen((prev) => !prev)}
-              >
-                <MenuIcon className="w-5 ml-2" />
-                <UserCircleIcon className="w-8" />
-              </div>
-              <div
-                className={`${
-                  !dropdownOpen && "opacity-0 invisible"
-                } dropdown-content absolute top-[calc(100%+12px)] right-0 min-w-[225px] bg-white z-20 whitespace-nowrap font-medium rounded-xl transition-all duration-300 overflow-hidden py-2`}
-                style={{ boxShadow: "0 5px 30px 6px rgb(0 0 0 / .125)" }}
-              >
-                <DropdownItem>Sign Up</DropdownItem>
-                <DropdownItem>Login</DropdownItem>
-                <hr className="my-2" />
-                <DropdownItem>Host your Home</DropdownItem>
-                <DropdownItem>Live your Dreams</DropdownItem>
-                <DropdownItem>Help</DropdownItem>
-              </div>
-            </div>
-          </div>
+          <RightMenu
+            dropdownOpen={dropdownOpen}
+            setDropdownOpen={setDropdownOpen}
+            navDropdownRef={navDropdownRef}
+          />
         </div>
       </header>
 
@@ -246,9 +211,8 @@ const Header = ({ searchPlaceholder }) => {
         className={`${
           inputFocus ? "scale-100" : "scale-0"
         } absolute top-20 z-10 w-full bg-white shadow-xl origin-top transition-transform duration-300 pb-4 flex justify-center items-center`}
-        onClick={() => setInputFocus(true)}
       >
-        <div className="inner-wrapper font-semibold">
+        <div className="inner-wrapper font-semibold max-w-full">
           <DateRangePicker
             ranges={dateRangeState}
             minDate={new Date()}
@@ -295,11 +259,5 @@ const Header = ({ searchPlaceholder }) => {
     </div>
   );
 };
-
-const DropdownItem = ({ children }) => (
-  <div className="px-4 py-2 hover:bg-gray-100 transition-colors cursor-pointer">
-    {children}
-  </div>
-);
 
 export default Header;

@@ -80,7 +80,7 @@ const MapComponent = ({ placesData }) => {
     <Map
       {...mapView}
       onMove={(e) => setMapView(e.viewState)}
-      mapboxAccessToken={process.env.MAPBOX_TOKEN}
+      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
       mapStyle={"mapbox://styles/mapbox/satellite-v9"}
       minZoom={7}
     >

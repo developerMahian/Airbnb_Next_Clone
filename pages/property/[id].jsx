@@ -2,12 +2,12 @@ import { ShieldCheckIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Header from "../../components/Header";
 import ImageCarousel from "../../components/ImageCarousel";
-// import { fetchApi } from "../utils/fetchApi";
-import { staticPropertyDetail } from "../../StaticData/propertyDetail";
-import { FaBed, FaBath } from "react-icons/fa";
-import { BsGridFill } from "react-icons/bs";
 import Footer from "../../components/Footer";
 import MapComponent from "../../components/Map";
+import { FaBed, FaBath } from "react-icons/fa";
+import { BsGridFill } from "react-icons/bs";
+import { fetchApi } from "../../utils/fetchApi";
+// import { staticPropertyDetail } from "../../StaticData/propertyDetail";
 
 const Property = ({ propertyDetails }) => {
   const {
@@ -138,8 +138,8 @@ const VerticalDivider = () => (
 export default Property;
 
 export async function getServerSideProps({ params: { id } }) {
-  // const data = await fetchApi(`properties/detail?externalID=${id}`, true);
-  const data = staticPropertyDetail;
+  const data = await fetchApi(`properties/detail?externalID=${id}`, true);
+  // const data = staticPropertyDetail;
 
   return {
     props: {

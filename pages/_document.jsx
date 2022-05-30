@@ -15,7 +15,11 @@ const Document = () => (
       />
     </Head>
 
-    <body className="debug-screens scroll-smooth">
+    <body
+      className={`${
+        process.env.NODE_ENV !== "production" && "debug-screens"
+      } scroll-smooth`}
+    >
       <Main />
       <NextScript />
     </body>

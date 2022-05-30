@@ -1,24 +1,31 @@
 import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { parseISO } from "date-fns";
-import Header from "../components/Header";
+
+import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 import PlaceCard from "../components/PlaceCard";
 import MapComponent from "../components/Map";
-import { ArrowCircleLeftIcon, MapIcon } from "@heroicons/react/solid";
-// import { fetchApi } from "../utils/fetchApi";
-import { rentalList, forSaleList } from "../StaticData/propertyList";
 
-const SearchResultPage = () => {
-  const [propertiesRentalData, setPropertiesRentalData] = useState(rentalList);
-  const [propertiesForSaleData, setPropertiesForSaleData] =
-    useState(forSaleList);
+import { parseISO } from "date-fns";
+import { fetchApi } from "../utils/fetchApi";
+
+import { ArrowCircleLeftIcon, MapIcon } from "@heroicons/react/solid";
+
+import {
+  rentalList as propertiesRentalData,
+  forSaleList as propertiesForSaleData,
+} from "../StaticData/propertyList";
+
+const SearchResultPage = ({
+  // propertiesRentalData,
+  // propertiesForSaleData,
+  query: { placeName, startDate, endDate, guestCount },
+}) => {
   const [allPropertiesData, setAllPropertiesData] = useState([
     ...propertiesForSaleData,
     ...propertiesRentalData,
   ]);
-  const [placesData, setPlacesData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [propertyPurpose, setPropertyPurpose] = useState("all");
 
   const mobileMapBtnRef = useRef(null);
@@ -26,31 +33,6 @@ const SearchResultPage = () => {
   const sectionHideIconRef = useRef(null);
   const sectionMapRef = useRef(null);
   const footerRef = useRef(null);
-
-  const router = useRouter();
-  const { placeName, locationExternalIDs, startDate, endDate, guestCount } =
-    router.query;
-
-  useEffect(() => {
-    // fetchApi(
-    //   `properties/list?locationExternalIDs=${locationExternalIDs}&purpose=for-rent`,
-    //   false
-    // ).then(({ hits }) => setPropertiesRentalData(hits));
-    // fetchApi(
-    //   `properties/list?locationExternalIDs=${locationExternalIDs}&purpose=for-sale`,
-    //   false
-    // ).then(({ hits }) => setPropertiesForSaleData(hits));
-  }, []);
-
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  };
-
-  shuffleArray(allPropertiesData);
 
   const fullMapWidth = (mobileParam) => {
     const sectionEl = leftSectionRef.current;
@@ -72,24 +54,21 @@ const SearchResultPage = () => {
   };
 
   useEffect(() => {
-    const filterPlacesData = {};
+    switch (propertyPurpose) {
+      case "all":
+        setFilteredData(allPropertiesData);
+        break;
 
-    if (propertyPurpose === "all") {
-      filterPlacesData = allPropertiesData;
-    } else if (propertyPurpose === "for-rent") {
-      filterPlacesData = propertiesRentalData;
-    } else if (propertyPurpose === "for-sale") {
-      filterPlacesData = propertiesForSaleData;
+      case "for-rent":
+        setFilteredData(propertiesRentalData);
+        break;
+
+      case "for-sale":
+        setFilteredData(propertiesForSaleData);
+        break;
     }
-
-    setPlacesData(filterPlacesData);
-  }, [
-    placesData,
-    propertyPurpose,
-    allPropertiesData,
-    propertiesRentalData,
-    propertiesForSaleData,
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [propertyPurpose]);
 
   const parsingDate = (date, withOutYear = true) => {
     const dateObj = parseISO(date);
@@ -123,86 +102,76 @@ const SearchResultPage = () => {
         searchPlaceholder={`${placeName}   |   ${dateRangeNoYear}   |   ${guestCount} guests`}
       />
 
-      {!allPropertiesData[0] ? (
-        <div className="min-h-[500px] flex justify-center items-center">
-          <h1 className="text-4xl font-bold">Page Loading...</h1>
-        </div>
-      ) : (
-        <main className="flex mb-10">
-          <button
-            ref={mobileMapBtnRef}
-            className="mobile-show-map md:hidden fixed top-[91%] left-1/2 translate-[-50%, -50%] w-24 -ml-12 font-bold text-white bg-gray-800 py-2 rounded-full opacity-80 hover:opacity-100 hover:scale-95 transition-all z-20"
-            onClick={() => fullMapWidth(true)}
-          >
-            Map
-            <MapIcon className="h-5 inline ml-1.5" />
-          </button>
+      <main className="flex mb-10">
+        <button
+          ref={mobileMapBtnRef}
+          className="mobile-show-map md:hidden fixed top-[91%] left-1/2 translate-[-50%, -50%] w-24 -ml-12 font-bold text-white bg-gray-800 py-2 rounded-full opacity-80 hover:opacity-100 hover:scale-95 transition-all z-20"
+          onClick={() => fullMapWidth(true)}
+        >
+          Map
+          <MapIcon className="h-5 inline ml-1.5" />
+        </button>
 
-          <section
-            ref={leftSectionRef}
-            className="origin-left w-full h-full md:w-3/4 duration-500 overflow-hidden mt-28 sm:px-3 flex flex-col"
-            style={{ transitionProperty: "width" }}
-          >
-            <div className="top-content pl-2">
-              <div className="top-info text-sm font-medium mb-2">
-                300+ stays - {dateRange} - for {guestCount} guests
-              </div>
-              <h1 className="text-3xl font-extrabold mb-4">
-                Stays in <span className="capitalize">{placeName}</span>
-              </h1>
-
-              <div className="filters flex flex-wrap gap-3 mb-4">
-                {propertyPurpose !== "all" && (
-                  <FilterBtn onFilterClick={() => setPropertyPurpose("all")}>
-                    Both Rental and On-Sale
-                  </FilterBtn>
-                )}
-
-                {propertyPurpose !== "for-rent" && (
-                  <FilterBtn
-                    onFilterClick={() => setPropertyPurpose("for-rent")}
-                  >
-                    For Rent
-                  </FilterBtn>
-                )}
-
-                {propertyPurpose !== "for-sale" && (
-                  <FilterBtn
-                    onFilterClick={() => setPropertyPurpose("for-sale")}
-                  >
-                    For Sale
-                  </FilterBtn>
-                )}
-              </div>
+        <section
+          ref={leftSectionRef}
+          className="origin-left w-full h-full md:w-3/4 duration-500 overflow-hidden mt-28 sm:px-3 flex flex-col"
+          style={{ transitionProperty: "width" }}
+        >
+          <div className="top-content pl-2">
+            <div className="top-info text-sm font-medium mb-2">
+              300+ stays - {dateRange} - for {guestCount} guests
             </div>
+            <h1 className="text-3xl font-extrabold mb-4">
+              Stays in <span className="capitalize">{placeName}</span>
+            </h1>
 
-            {placesData?.map((propObj, index) => (
-              <PlaceCard key={index} placeName={placeName} {...propObj} />
-            ))}
-          </section>
+            <div className="filters flex flex-wrap gap-3 mb-4">
+              {propertyPurpose !== "all" && (
+                <FilterBtn onFilterClick={() => setPropertyPurpose("all")}>
+                  Both Rental and On-Sale
+                </FilterBtn>
+              )}
 
-          <section
-            ref={sectionMapRef}
-            className="hidden md:inline-flex relative w-full h-full md:w-1/4 min-w-[400px] xl:min-w-[600px] mt-20 bg-gray-200"
-          >
-            <div className="w-full h-[calc(100vh-80px)] fixed">
-              <button
-                className="absolute left-[7px] top-[10px] bg-white rounded-md px- p-1.5 z-20 active:scale-125 transition-transform duration-300"
-                onClick={fullMapWidth}
-              >
-                <ArrowCircleLeftIcon
-                  ref={sectionHideIconRef}
-                  className="w-6 transition-transform duration-500"
-                />
-              </button>
+              {propertyPurpose !== "for-rent" && (
+                <FilterBtn onFilterClick={() => setPropertyPurpose("for-rent")}>
+                  For Rent
+                </FilterBtn>
+              )}
 
-              {placesData[0]?.geography.lng && (
-                <MapComponent placesData={placesData} />
+              {propertyPurpose !== "for-sale" && (
+                <FilterBtn onFilterClick={() => setPropertyPurpose("for-sale")}>
+                  For Sale
+                </FilterBtn>
               )}
             </div>
-          </section>
-        </main>
-      )}
+          </div>
+
+          {filteredData?.map((propObj, index) => (
+            <PlaceCard key={index} placeName={placeName} {...propObj} />
+          ))}
+        </section>
+
+        <section
+          ref={sectionMapRef}
+          className="hidden md:inline-flex relative w-full h-full md:w-1/4 min-w-[400px] xl:min-w-[600px] mt-20 bg-gray-200"
+        >
+          <div className="w-full h-[calc(100vh-80px)] fixed">
+            <button
+              className="absolute left-[7px] top-[10px] bg-white rounded-md px- p-1.5 z-20 active:scale-125 transition-transform duration-300"
+              onClick={fullMapWidth}
+            >
+              <ArrowCircleLeftIcon
+                ref={sectionHideIconRef}
+                className="w-6 transition-transform duration-500"
+              />
+            </button>
+
+            <MapComponent placesData={filteredData} />
+            {/* {filteredData[0]?.geography?.lng && (
+            )} */}
+          </div>
+        </section>
+      </main>
 
       <div ref={footerRef} className="block md:hidden">
         <Footer />
@@ -219,5 +188,23 @@ const FilterBtn = ({ children, onFilterClick }) => (
     {children}
   </button>
 );
+
+export async function getServerSideProps({ query }) {
+  // const forRent = await fetchApi(
+  //   `/properties/list?locationExternalIDs=${query?.locationExternalIDs}&purpose=for-rent`
+  // );
+
+  // const forSale = await fetchApi(
+  //   `/properties/list?locationExternalIDs=${query?.locationExternalIDs}&purpose=for-sale`
+  // );
+
+  return {
+    props: {
+      // propertiesRentalData: forRent?.hits,
+      // propertiesForSaleData: forSale?.hits,
+      query,
+    },
+  };
+}
 
 export default SearchResultPage;
