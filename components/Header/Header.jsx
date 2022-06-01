@@ -85,11 +85,13 @@ const Header = ({ searchPlaceholder }) => {
     () =>
       fetchApi(`/auto-complete?query=${debouncedSearchInput}&hitsPerPage=6`),
     {
-      enabled: debouncedSearchInput.length > 0,
+      enabled:
+        debouncedSearchInput.length > 0 &&
+        selectedSuggestion?.name !== searchInput,
       staleTime: Infinity,
     }
   );
-  console.log({ data });
+  data?.hits && console.log({ data });
 
   let suggestionData = [];
 

@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Map, {
-  FullscreenControl,
   GeolocateControl,
   Marker,
   NavigationControl,
@@ -9,10 +8,16 @@ import Map, {
   ScaleControl,
 } from "react-map-gl";
 import getCenter from "geolib/es/getCenter";
-import { LocationMarkerIcon } from "@heroicons/react/solid";
 
 const MapComponent = ({ placesData }) => {
   const [selectedMarker, setSelectedMarker] = useState({});
+
+  const formattedPrice = (price) => {
+    return new Intl.NumberFormat("en-GB", {
+      notation: "compact",
+      compactDisplay: "short",
+    }).format(price);
+  };
 
   const markers = useMemo(
     () =>
@@ -29,15 +34,17 @@ const MapComponent = ({ placesData }) => {
           >
             <p
               role="img"
-              className="cursor-pointer animate-bounce"
+              className="block bg-gray-100 font-bold text-sm py-1 px-2.5 rounded-full shadow-md cursor-pointer hover:scale-105 hover:shadow-xl transition"
               aria-label="push-pin"
+              title={result?.title.slice(0, 25) + "..."}
             >
-              <LocationMarkerIcon className="w-6 text-red-600" />
+              {formattedPrice(result?.price)}
             </p>
           </Marker>
 
           {result.id === selectedMarker.id && (
             <Popup
+              className="z-50 shadow-xl"
               anchor="top"
               latitude={result?.geography.lat}
               longitude={result?.geography.lng}
@@ -84,7 +91,7 @@ const MapComponent = ({ placesData }) => {
       mapStyle={"mapbox://styles/mapbox/satellite-v9"}
       minZoom={7}
     >
-      <GeolocateControl className="mt-10 opacity-0" position="top-left" />
+      <GeolocateControl className="mt-10" position="top-left" />
       <NavigationControl position="top-left" />
       <ScaleControl />
 

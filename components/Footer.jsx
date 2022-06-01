@@ -1,35 +1,51 @@
 import Link from "next/link";
-import { FaArrowCircleUp, FaGithubAlt, FaTwitter } from "react-icons/fa";
-import Fiverr from "./SvgAssets/Fiverr";
+import {
+  FaArrowCircleUp,
+  FaGithubAlt,
+  FaTwitter,
+  FaSkype,
+} from "react-icons/fa";
 
 const Footer = () => (
   <footer className="h-56 overflow-hidden relative mt-20">
-    <div className="flex flex-col items-center justify-end h-full pb-5 before:content-[''] before:absolute before:top-0 before:left-1/2 before:-ml-[75rem] before:w-[150rem] before:h-[150rem] before:rounded-[50%] before:bg-gray-100 before:-z-10">
+    <div className="flex flex-col items-center justify-end h-full pb-10 before:content-[''] before:absolute before:top-0 before:left-1/2 before:-ml-[75rem] before:w-[150rem] before:h-[150rem] before:rounded-[50%] before:bg-gray-100 before:-z-10">
       <section className="flex gap-6 justify-center items-center mb-10">
-        <a href="#" target="_blank">
+        <a
+          href="https://twitter.com/DeveloperMahian"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaTwitter className={`${socialIconsClass} text-blue-500`} />
         </a>
 
         <a
-          href="#"
+          href="https://join.skype.com/invite/wecW1GItckDh"
           target="_blank"
-          className="hover:rotate-[20deg] transition-transform"
+          rel="noreferrer"
+          className={`${socialIconsClass} text-sky-500 animate-bounce`}
         >
-          <Fiverr />
+          <FaSkype />
         </a>
 
-        <a href="#" target="_blank">
+        <a
+          href="https://github.com/developerMahian"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaGithubAlt className={socialIconsClass} />
         </a>
       </section>
 
       <section className="text-gray-500 text-xs text-center font-mono font-semibold mb-2.5">
         Copyright © 2022, All Right Reserved{" "}
-        <Link href="#">
-          <a className="inline-block text-red-500 hover:text-red-600 hover:scale-105 transition-all duration-300">
-            DevMahian
-          </a>
-        </Link>
+        <a
+          href="https://join.skype.com/invite/wecW1GItckDh"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block text-red-500 hover:text-red-600 hover:scale-105 transition-all duration-300"
+        >
+          DevMahian
+        </a>
         <div>Inspired by Airbnb</div>
       </section>
 
@@ -42,6 +58,7 @@ const Footer = () => (
   </footer>
 );
 
-const socialIconsClass = "text-2xl hover:rotate-[20deg] transition-transform";
+const socialIconsClass =
+  "text-2xl hover:rotate-[20deg] hover:scale-105 transition-transform";
 
 export default Footer;

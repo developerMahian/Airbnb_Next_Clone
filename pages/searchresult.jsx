@@ -12,8 +12,8 @@ import { fetchApi } from "../utils/fetchApi";
 import { ArrowCircleLeftIcon, MapIcon } from "@heroicons/react/solid";
 
 import {
-  rentalList as propertiesRentalData,
-  forSaleList as propertiesForSaleData,
+  propertiesRentalData,
+  propertiesForSaleData,
 } from "../StaticData/propertyList";
 
 const SearchResultPage = ({
@@ -21,10 +21,6 @@ const SearchResultPage = ({
   // propertiesForSaleData,
   query: { placeName, startDate, endDate, guestCount },
 }) => {
-  const [allPropertiesData, setAllPropertiesData] = useState([
-    ...propertiesForSaleData,
-    ...propertiesRentalData,
-  ]);
   const [filteredData, setFilteredData] = useState([]);
   const [propertyPurpose, setPropertyPurpose] = useState("all");
 
@@ -34,21 +30,22 @@ const SearchResultPage = ({
   const sectionMapRef = useRef(null);
   const footerRef = useRef(null);
 
-  const fullMapWidth = (mobileParam) => {
-    const sectionEl = leftSectionRef.current;
-    const hidingClasses = ["!w-0", "!h-0", "invisible", "!p-0", "-z-10"];
+  const allPropertiesData = [...propertiesForSaleData, ...propertiesRentalData];
 
-    sectionHideIconRef.current.classList.toggle("rotate-180");
+  const fullMapWidth = (mobileParam) => {
+    const hidingClasses = ["-translate-x-[200vw]", "!p-0", "!w-0"];
+
+    sectionHideIconRef.current?.classList.toggle("rotate-180");
 
     setTimeout(() => {
-      hidingClasses.forEach((className) =>
-        sectionEl.classList.toggle(className)
-      );
+      hidingClasses.forEach((className) => {
+        leftSectionRef.current?.classList.toggle(className);
+      });
 
       if (mobileParam) {
-        sectionMapRef.current.classList.toggle("hidden");
-        footerRef.current.classList.toggle("hidden");
-        mobileMapBtnRef.current.classList.toggle("hidden");
+        sectionMapRef.current?.classList.toggle("!w-full");
+        footerRef.current?.classList.toggle("hidden");
+        mobileMapBtnRef.current?.classList.toggle("hidden");
       }
     }, 100);
   };
@@ -102,10 +99,10 @@ const SearchResultPage = ({
         searchPlaceholder={`${placeName}   |   ${dateRangeNoYear}   |   ${guestCount} guests`}
       />
 
-      <main className="flex mb-10">
+      <main className="flex mb-10 min-h-[calc(100vh-225px)]">
         <button
           ref={mobileMapBtnRef}
-          className="mobile-show-map md:hidden fixed top-[91%] left-1/2 translate-[-50%, -50%] w-24 -ml-12 font-bold text-white bg-gray-800 py-2 rounded-full opacity-80 hover:opacity-100 hover:scale-95 transition-all z-20"
+          className="mobile-show-map md:hidden fixed top-[92%] left-1/2 translate-[-50%, -50%] w-24 -ml-12 font-bold text-white bg-gray-800 py-2 rounded-full opacity-80 hover:opacity-100 hover:scale-95 transition-all z-20"
           onClick={() => fullMapWidth(true)}
         >
           Map
@@ -114,12 +111,14 @@ const SearchResultPage = ({
 
         <section
           ref={leftSectionRef}
-          className="origin-left w-full h-full md:w-3/4 duration-500 overflow-hidden mt-28 sm:px-3 flex flex-col"
-          style={{ transitionProperty: "width" }}
+          className="flex flex-col origin-left w-full h-full md:w-3/4 transition-all duration-500 overflow-hidden mt-28 sm:px-3"
         >
           <div className="top-content pl-2">
             <div className="top-info text-sm font-medium mb-2">
-              300+ stays - {dateRange} - for {guestCount} guests
+              <span className="text-[15px] font-bold">
+                {filteredData.length}+
+              </span>{" "}
+              stays - {dateRange} - for {guestCount} guests
             </div>
             <h1 className="text-3xl font-extrabold mb-4">
               Stays in <span className="capitalize">{placeName}</span>
@@ -153,7 +152,7 @@ const SearchResultPage = ({
 
         <section
           ref={sectionMapRef}
-          className="hidden md:inline-flex relative w-full h-full md:w-1/4 min-w-[400px] xl:min-w-[600px] mt-20 bg-gray-200"
+          className="flex relative w-0 h-full md:w-1/4 md:min-w-[400px] xl:min-w-[600px] transition-all mt-20 bg-gray-200"
         >
           <div className="w-full h-[calc(100vh-80px)] fixed">
             <button
@@ -166,9 +165,9 @@ const SearchResultPage = ({
               />
             </button>
 
-            <MapComponent placesData={filteredData} />
-            {/* {filteredData[0]?.geography?.lng && (
-            )} */}
+            {filteredData[0]?.geography?.lng && (
+              <MapComponent placesData={filteredData} />
+            )}
           </div>
         </section>
       </main>

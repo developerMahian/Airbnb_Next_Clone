@@ -17,7 +17,12 @@ const PlaceCard = ({
 
   const router = useRouter();
 
-  const formattedPrice = () => (price / 1000).toFixed(1).split(".0")[0];
+  const formattedPrice = () => {
+    return new Intl.NumberFormat("en-GB", {
+      notation: "compact",
+      compactDisplay: "long",
+    }).format(price);
+  };
 
   return (
     <div
@@ -40,7 +45,7 @@ const PlaceCard = ({
             className={`${
               heartActive && "fill-red-500"
             } h-7 active:scale-125 transition-transform`}
-            onClick={() => setHeartActive(!heartActive)}
+            onClick={() => setHeartActive((prev) => !prev)}
           />
         </div>
 
@@ -57,10 +62,10 @@ const PlaceCard = ({
 
           <div>
             <span className="text-lg md:text-xl font-bold mr-1">
-              <span className="tracking-tighter">AED</span> {formattedPrice()}K
+              <span className="tracking-tighter">DH</span> {formattedPrice()}
             </span>
             <span className="text- md:text-lg font-medium">
-              {rentFrequency ? "month" : "price"}
+              {rentFrequency && "month"}
             </span>
           </div>
         </div>

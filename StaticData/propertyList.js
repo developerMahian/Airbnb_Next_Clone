@@ -1,4 +1,4 @@
-export const forSaleList = [
+export const propertiesForSaleData = [
   {
     id: 3194532,
     ownerID: 786737,
@@ -9324,7 +9324,7 @@ export const forSaleList = [
   },
 ];
 
-export const rentalList = [
+export const propertiesRentalData = [
   {
     id: 2343270,
     ownerID: 404984,

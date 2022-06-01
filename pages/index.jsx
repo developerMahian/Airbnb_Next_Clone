@@ -20,7 +20,7 @@ const HomePage = ({ exploreData, liveAnywhereData }) => (
     <Header />
     <HomeBanner />
 
-    <main className="max-w-4xl mx-auto p-4">
+    <main className="max-w-4xl mx-auto p-4 min-h-[calc(100vh-225px)]">
       <section className="top-cards mb-8">
         <h1 className="text-3xl font-extrabold py-2 mb-3">Explore Nearby</h1>
 

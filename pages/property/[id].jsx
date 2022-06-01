@@ -1,6 +1,6 @@
 import { ShieldCheckIcon } from "@heroicons/react/solid";
 import Image from "next/image";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 import ImageCarousel from "../../components/ImageCarousel";
 import Footer from "../../components/Footer";
 import MapComponent from "../../components/Map";
@@ -31,19 +31,19 @@ const Property = ({ propertyDetails }) => {
     <>
       <Header />
 
-      <main className="container md:px-4 xl:px-8 mt-20">
+      <main className="container min-h-[calc(100vh-225px)] md:px-4 xl:px-8 mt-20">
         <ImageCarousel photos={photos} />
 
         <div className="flex justify-between items-center mt-2">
           <div className="flex items-center gap-1 font-extrabold text-base">
             {isVerified && <ShieldCheckIcon className="h-4 text-green-600" />}
-            AED {price} {rentFrequency && `/${rentFrequency}`}
+            DH {price} {rentFrequency && `/${rentFrequency}`}
           </div>
           <div className="relative w-12 h-12 border-2 border-red-500 overflow-hidden rounded-full">
             <Image
               src={agency?.logo?.url}
               alt={`${agency?.name} logo`}
-              title="Real Estate Agency"
+              title={agency?.name}
               layout="fill"
             />
           </div>
@@ -103,14 +103,16 @@ const Property = ({ propertyDetails }) => {
             <h3 className="text-xl font-extrabold mb-3">Facilities:</h3>
 
             <div className="flex flex-wrap gap-5">
-              {amenities?.map((item, index) => (
-                <div
-                  key={index}
-                  className="px-5 py-2 rounded-md text-base text-red-500 bg-red-100 font-extrabold hover:scale-105 transition-transform capitalize cursor-default"
-                >
-                  {item}
-                </div>
-              ))}
+              {amenities?.map(({ amenities: item }) =>
+                item?.map(({ text }, index) => (
+                  <div
+                    key={index}
+                    className="px-5 py-2 rounded-md text-base text-red-500 bg-red-100 font-extrabold hover:scale-105 transition-transform capitalize cursor-default"
+                  >
+                    {text}
+                  </div>
+                ))
+              )}
             </div>
           </section>
         )}
@@ -118,7 +120,7 @@ const Property = ({ propertyDetails }) => {
         <section className="">
           <h3 className="text-xl font-extrabold mb-3">Where you&apos;ll be:</h3>
 
-          <div className="w-full h-[430px] rounded-xl overflow-hidden">
+          <div className="w-full h-80 md:h-96 lg:h-[430px] rounded-xl overflow-hidden">
             <MapComponent placesData={[propertyDetails]} />
           </div>
         </section>
@@ -138,7 +140,7 @@ const VerticalDivider = () => (
 export default Property;
 
 export async function getServerSideProps({ params: { id } }) {
-  const data = await fetchApi(`properties/detail?externalID=${id}`, true);
+  const data = await fetchApi(`/properties/detail?externalID=${id}`);
   // const data = staticPropertyDetail;
 
   return {
