@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   FaArrowCircleUp,
   FaGithubAlt,
@@ -22,9 +21,10 @@ const Footer = () => (
           href="https://join.skype.com/invite/wecW1GItckDh"
           target="_blank"
           rel="noreferrer"
-          className={`${socialIconsClass} text-sky-500 animate-bounce`}
         >
-          <FaSkype />
+          <FaSkype
+            className={`${socialIconsClass} !text-3xl text-sky-500 animate-bounce`}
+          />
         </a>
 
         <a
