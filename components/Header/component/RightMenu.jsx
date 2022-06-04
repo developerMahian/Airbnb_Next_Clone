@@ -1,11 +1,18 @@
 import { useState } from "react";
+
+import propTypes from "prop-types";
+import { element } from "prop-types";
+
 import DeadLinkPopup from "../../DeadLinkPopup";
 import { MenuIcon, UserCircleIcon } from "@heroicons/react/solid";
 
 const RightMenu = ({ dropdownOpen, setDropdownOpen, navDropdownRef }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => setIsModalOpen(true);
+  const openModal = () => {
+    setIsModalOpen(true);
+    setDropdownOpen(false);
+  };
 
   return (
     <div className="header__navigation gap-1 hidden md:flex items-center">
@@ -54,5 +61,16 @@ const DropdownItem = ({ children, clickHandler }) => (
     {children}
   </div>
 );
+
+RightMenu.propTypes = {
+  dropdownOpen: propTypes.bool.isRequired,
+  setDropdownOpen: propTypes.func.isRequired,
+  navDropdownRef: propTypes.object.isRequired,
+};
+
+DropdownItem.propTypes = {
+  children: propTypes.string.isRequired,
+  clickHandler: propTypes.func.isRequired,
+};
 
 export default RightMenu;

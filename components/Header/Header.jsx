@@ -5,6 +5,8 @@ import { useState, useRef, useEffect } from "react";
 import { addDays } from "date-fns";
 import { useQuery } from "react-query";
 import { DateRangePicker } from "react-date-range";
+import ReactLoading from "react-loading";
+import propTypes from "prop-types";
 
 import { fetchApi } from "../../utils/fetchApi";
 import useDebounce from "../../utils/useDebounce";
@@ -25,6 +27,7 @@ const Header = ({ searchPlaceholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const debouncedSearchInput = useDebounce(searchInput);
 
+  const [minimizeHeader, setMinimizeHeader] = useState(false);
   const [guestCount, setGuestCount] = useState(1);
   const [inputFocus, setInputFocus] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -49,12 +52,16 @@ const Header = ({ searchPlaceholder }) => {
    ** close wide search on scroll..
    *****/
   useEffect(() => {
-    const handleScroll = () => (inputFocus ? setInputFocus(false) : null);
+    const handleScroll = () => {
+      inputFocus ? setInputFocus(false) : null;
 
-    if (inputFocus) {
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
+      setMinimizeHeader(window.scrollY > 150);
+    };
+
+    // handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [inputFocus]);
 
   /*****
@@ -125,12 +132,17 @@ const Header = ({ searchPlaceholder }) => {
   };
 
   return (
-    <div
-      className="header-wrapper fixed top-0 right-0 left-0 z-20 shadow-md bg-white"
+    <header
+      className="fixed top-0 right-0 left-0 z-20 shadow-md bg-white"
       ref={headerRef}
     >
-      <header className="container z-20">
-        <div className="py-3 md:px-4 xl:px-8 h-20 w-full flex justify-between items-center">
+      <div className="container z-20">
+        <div
+          className={`${
+            minimizeHeader ? "h-14" : "h-20"
+          } md:px-4 xl:px-8 w-full flex justify-between items-center duration-300`}
+          style={{ transitionProperty: "height" }}
+        >
           <div className="header__logo relative text-red-500 hidden md:block">
             <Link href="/">
               <a>
@@ -155,11 +167,15 @@ const Header = ({ searchPlaceholder }) => {
             >
               <input
                 ref={searchInputRef}
-                className={`${searchPlaceholder && "placeholder:capitalize"}
-                    placeholder:text-black h-12 w-full outline-none font-semibold pl-6 pr-1 rounded-full cursor-pointer focus:cursor-text text-center md:text-left`}
+                className={`${searchPlaceholder && "placeholder:capitalize"} ${
+                  minimizeHeader ? "h-10" : "h-12"
+                }
+                      placeholder:text-black w-full outline-none font-semibold pl-6 pr-1 rounded-full cursor-pointer focus:cursor-text text-center md:text-left`}
                 id="header-input"
                 type="search"
-                placeholder={searchPlaceholder || "Where to go in UAE?"}
+                placeholder={
+                  searchPlaceholder || "Where to go in Arab Emirates?"
+                }
                 autoComplete="off"
                 value={searchInput}
                 onChange={(event) => setSearchInput(event.target.value)}
@@ -196,9 +212,18 @@ const Header = ({ searchPlaceholder }) => {
                 ))}
               </div>
             </form>
-            <button type="submit" form="headerSearchForm">
-              <SearchIcon className="h-8 text-white bg-red-500 rounded-full p-2" />
-            </button>
+            {isLoading ? (
+              <ReactLoading
+                type="bubbles"
+                color="#ef4444"
+                height="40px"
+                width="40px"
+              />
+            ) : (
+              <button type="submit" form="headerSearchForm">
+                <SearchIcon className="h-8 text-white bg-red-500 hover:scale-105 transition-transform rounded-full p-2" />
+              </button>
+            )}
           </div>
 
           <RightMenu
@@ -207,12 +232,12 @@ const Header = ({ searchPlaceholder }) => {
             navDropdownRef={navDropdownRef}
           />
         </div>
-      </header>
+      </div>
 
       <div
-        className={`${
-          inputFocus ? "scale-100" : "scale-0"
-        } absolute top-20 z-10 w-full bg-white shadow-xl origin-top transition-transform duration-300 pb-4 flex justify-center items-center`}
+        className={`${inputFocus ? "scale-100" : "scale-0"} absolute ${
+          minimizeHeader ? "top-14" : "top-20"
+        } z-10 w-full bg-white shadow-xl origin-top transition-transform duration-300 pb-4 flex justify-center items-center`}
       >
         <div className="inner-wrapper font-semibold max-w-full">
           <DateRangePicker
@@ -221,10 +246,8 @@ const Header = ({ searchPlaceholder }) => {
             rangeColors={["#ef4444"]}
             onChange={(item) => setDateRangeState([item.selection])}
           />
-
           <div className="guest-count flex justify-between items-center border-b mb-2">
             <h2 className="text-xl font-bold">Number of Guests</h2>
-
             <div className="flex justify-center items-center">
               <UsersIcon className="h-5" />
               <input
@@ -236,7 +259,6 @@ const Header = ({ searchPlaceholder }) => {
               />
             </div>
           </div>
-
           <div className="flex justify-evenly">
             <button
               className="text-gray-500 hover:bg-gray-100 transition-colors rounded-full py-1 px-4"
@@ -258,8 +280,12 @@ const Header = ({ searchPlaceholder }) => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
+};
+
+Header.propTypes = {
+  searchPlaceholder: propTypes.string,
 };
 
 export default Header;

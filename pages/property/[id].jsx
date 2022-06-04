@@ -1,12 +1,12 @@
-import { ShieldCheckIcon } from "@heroicons/react/solid";
 import Image from "next/image";
-import Header from "../../components/Header/Header";
-import ImageCarousel from "../../components/ImageCarousel";
-import Footer from "../../components/Footer";
-import MapComponent from "../../components/Map";
+
+import { Footer, Header, ImageCarousel, MapComponent } from "../../components";
+
+import { ShieldCheckIcon } from "@heroicons/react/solid";
 import { FaBed, FaBath } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
 import { fetchApi } from "../../utils/fetchApi";
+import propTypes from "prop-types";
 // import { staticPropertyDetail } from "../../StaticData/propertyDetail";
 
 const Property = ({ propertyDetails }) => {
@@ -136,6 +136,10 @@ const topIconStyle = "inline text-lg text-red-500 ml-1";
 const VerticalDivider = () => (
   <span className="bg-black w-[1px] h-6 opacity-20"></span>
 );
+
+Property.propTypes = {
+  propertyDetails: propTypes.object,
+};
 
 export default Property;
 

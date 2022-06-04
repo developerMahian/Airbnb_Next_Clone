@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const TopCard = ({ img, location, distance }) => (
-  <div className="flex items-center gap-3 rounded-lg p-1 hover:bg-gray-100 hover:scale-105 transition-all ease-out cursor-pointer">
+  <div className="flex items-center gap-3 rounded-lg p-1 hover:bg-gray-100 hover:scale-110 transition-all ease-out cursor-pointer">
     <div className="relative w-14 h-14 rounded-lg overflow-hidden">
       <Image
         src={img}

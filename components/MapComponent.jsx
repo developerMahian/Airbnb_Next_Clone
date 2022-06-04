@@ -34,7 +34,7 @@ const MapComponent = ({ placesData }) => {
           >
             <p
               role="img"
-              className="block bg-gray-100 font-bold text-sm py-1 px-2.5 rounded-full shadow-md cursor-pointer hover:scale-105 hover:shadow-xl transition"
+              className="block bg-gray-100 font-bold text-sm py-1 px-2.5 rounded-full shadow-md cursor-pointer hover:bg-gray-300 hover:scale-110 hover:shadow-xl transition"
               aria-label="push-pin"
               title={result?.title.slice(0, 25) + "..."}
             >

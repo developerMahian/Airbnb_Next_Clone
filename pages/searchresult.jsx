@@ -1,24 +1,21 @@
 import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
 
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer";
-import PlaceCard from "../components/PlaceCard";
-import MapComponent from "../components/Map";
+import { Header, PlaceCard, MapComponent, Footer } from "../components";
 
 import { parseISO } from "date-fns";
 import { fetchApi } from "../utils/fetchApi";
 
 import { ArrowCircleLeftIcon, MapIcon } from "@heroicons/react/solid";
 
-import {
-  propertiesRentalData,
-  propertiesForSaleData,
-} from "../StaticData/propertyList";
+// import {
+//   propertiesRentalData,
+//   propertiesForSaleData,
+// } from "../StaticData/propertyList";
 
 const SearchResultPage = ({
-  // propertiesRentalData,
-  // propertiesForSaleData,
+  propertiesRentalData,
+  propertiesForSaleData,
   query: { placeName, startDate, endDate, guestCount },
 }) => {
   const [filteredData, setFilteredData] = useState([]);
@@ -189,18 +186,18 @@ const FilterBtn = ({ children, onFilterClick }) => (
 );
 
 export async function getServerSideProps({ query }) {
-  // const forRent = await fetchApi(
-  //   `/properties/list?locationExternalIDs=${query?.locationExternalIDs}&purpose=for-rent`
-  // );
+  const forRent = await fetchApi(
+    `/properties/list?locationExternalIDs=${query?.locationExternalIDs}&purpose=for-rent`
+  );
 
-  // const forSale = await fetchApi(
-  //   `/properties/list?locationExternalIDs=${query?.locationExternalIDs}&purpose=for-sale`
-  // );
+  const forSale = await fetchApi(
+    `/properties/list?locationExternalIDs=${query?.locationExternalIDs}&purpose=for-sale`
+  );
 
   return {
     props: {
-      // propertiesRentalData: forRent?.hits,
-      // propertiesForSaleData: forSale?.hits,
+      propertiesRentalData: forRent?.hits,
+      propertiesForSaleData: forSale?.hits,
       query,
     },
   };
