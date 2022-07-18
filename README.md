@@ -95,11 +95,4 @@ Mahian Ahmed - [Connect@Twitter](https://twitter.com/DeveloperMahian)
 
 Email - devmahiancontact@gmail.com
 
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-The mentor who guided me on this project with his courses:
-<a href="https://github.com/adrianhajdin">Adrian Hajdin</a>
-
 <p align="right">(<a href="#top">back to top</a>)</p>
